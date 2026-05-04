@@ -1,34 +1,52 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
 import ServiceCard from '../../components/ServiceCard.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Icon from '../../components/Icon.astro';
 import { WEB_SERVICES } from '../../lib/site';
 
 const title = 'Website development services';
 const description =
   'Apriori Studio designs and builds e-commerce stores, marketing sites, and custom web applications. End-to-end: domain, hosting, design, code, launch, and support.';
+
+const ICONS: Record<string, 'cart' | 'building' | 'dashboard'> = {
+  '/web/ecommerce': 'cart',
+  '/web/corporate': 'building',
+  '/web/saas': 'dashboard',
+};
 ---
 
 <BaseLayout title={title} description={description}>
-  <article class="max-w-4xl mx-auto px-5 py-10 md:py-14">
+  <Hero image="/heroes/web.webp" tint="blue">
+    <span class="kicker text-amber-300">Websites</span>
+    <h1 class="text-3xl md:text-5xl font-semibold tracking-tight leading-[1.05] hero-shadow">
+      Websites that work for the<br class="hidden md:block" /> people who use them
+    </h1>
+    <p class="mt-5 text-lg text-slate-200/95 max-w-2xl hero-shadow">
+      Storefronts, marketing sites, custom web apps. Built end-to-end — domain and hosting
+      through to design, build, launch and ongoing care.
+    </p>
+  </Hero>
+
+  <article class="max-w-4xl mx-auto px-5 py-12 md:py-16">
     <Breadcrumbs items={[
       { href: '/', label: 'Home' },
       { href: '/web', label: 'Websites' },
     ]} />
 
-    <header class="mb-10">
-      <h1 class="text-3xl md:text-4xl font-semibold tracking-tight leading-tight">
-        Websites that work for the people who use them
-      </h1>
-      <p class="mt-3 text-lg text-[var(--color-ink-soft)] max-w-2xl">
-        Whatever you need a website for — selling, telling a story, running a business behind
-        the scenes — we've probably built it before. Pick a category to see how we approach it.
-      </p>
-    </header>
-
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-14">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-14 reveal">
       {WEB_SERVICES.map((s) => (
-        <ServiceCard href={s.href} title={s.title} blurb={s.blurb} />
+        <a href={s.href} class="group block p-6 bg-white border border-[var(--color-border)] rounded-xl hover:border-[var(--color-accent)] hover:shadow-md transition-all">
+          <div class="w-11 h-11 rounded-lg bg-[var(--color-ink)] text-white flex items-center justify-center mb-4 group-hover:bg-[var(--color-accent)] transition-colors">
+            <Icon name={ICONS[s.href]} size={22} />
+          </div>
+          <h3 class="text-lg font-semibold text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors mb-2">{s.title}</h3>
+          <p class="text-sm text-[var(--color-ink-soft)] leading-relaxed mb-4">{s.blurb}</p>
+          <span class="inline-flex items-center gap-1 text-sm font-medium text-[var(--color-accent)]">
+            Learn more <Icon name="arrow-right" size={14} class="group-hover:translate-x-0.5 transition-transform" />
+          </span>
+        </a>
       ))}
     </div>
 

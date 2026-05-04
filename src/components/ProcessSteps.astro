@@ -1,0 +1,32 @@
+---
+import Icon from './Icon.astro';
+
+interface Step {
+  num: string;
+  title: string;
+  body: string;
+  icon: 'compass' | 'rocket' | 'code' | 'shield' | 'sparkle' | 'search';
+}
+
+interface Props {
+  steps: Step[];
+}
+const { steps } = Astro.props;
+---
+<ol class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 relative">
+  <!-- Connecting line, desktop only -->
+  <div aria-hidden="true" class="hidden lg:block absolute top-12 left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-transparent via-[var(--color-border)] to-transparent"></div>
+
+  {steps.map((s) => (
+    <li class="relative p-6 bg-white border border-[var(--color-border)] rounded-xl group hover:border-[var(--color-accent)] hover:shadow-md transition-all">
+      <div class="flex items-center justify-between mb-4">
+        <div class="w-11 h-11 flex items-center justify-center rounded-lg bg-[var(--color-ink)] text-white group-hover:bg-[var(--color-accent)] transition-colors">
+          <Icon name={s.icon} size={22} />
+        </div>
+        <span class="text-xs font-mono text-[var(--color-ink-soft)] tracking-wider">{s.num}</span>
+      </div>
+      <h3 class="font-semibold mb-2 text-[var(--color-ink)]">{s.title}</h3>
+      <p class="text-sm text-[var(--color-ink-soft)] leading-relaxed">{s.body}</p>
+    </li>
+  ))}
+</ol>

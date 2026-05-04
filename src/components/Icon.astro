@@ -1,0 +1,149 @@
+---
+/**
+ * Inline line-icon set in the spirit of Lucide / Feather.
+ * 24x24 viewBox, 1.75 stroke, brand-coloured by inheriting `currentColor`.
+ */
+interface Props {
+  name:
+    | 'cart' | 'building' | 'dashboard'
+    | 'grid' | 'truck' | 'calendar' | 'heart'
+    | 'arrow-right' | 'check' | 'sparkle' | 'compass'
+    | 'code' | 'rocket' | 'shield' | 'search'
+    | 'phone-stack' | 'globe' | 'spark-line';
+  class?: string;
+  size?: number;
+  strokeWidth?: number;
+}
+const { name, class: className = '', size = 24, strokeWidth = 1.75 } = Astro.props;
+---
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width={size}
+  height={size}
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width={strokeWidth}
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true"
+  class={className}
+>
+  {name === 'cart' && (
+    <>
+      <circle cx="9" cy="20" r="1.4" />
+      <circle cx="18" cy="20" r="1.4" />
+      <path d="M2.5 3h2.2l2.4 12.5a2 2 0 0 0 2 1.6h8.7a2 2 0 0 0 2-1.5l1.6-7.6H6" />
+    </>
+  )}
+  {name === 'building' && (
+    <>
+      <rect x="4" y="3" width="16" height="18" rx="1.5" />
+      <path d="M8 7h2M12 7h2M16 7h0M8 11h2M12 11h2M16 11h0M8 15h2M12 15h2M16 15h0" />
+      <path d="M10 21v-3h4v3" />
+    </>
+  )}
+  {name === 'dashboard' && (
+    <>
+      <rect x="3" y="3" width="8" height="8" rx="1.2" />
+      <rect x="13" y="3" width="8" height="5" rx="1.2" />
+      <rect x="13" y="10" width="8" height="11" rx="1.2" />
+      <rect x="3" y="13" width="8" height="8" rx="1.2" />
+    </>
+  )}
+  {name === 'grid' && (
+    <>
+      <rect x="3" y="3" width="7" height="7" rx="1.2" />
+      <rect x="14" y="3" width="7" height="7" rx="1.2" />
+      <rect x="3" y="14" width="7" height="7" rx="1.2" />
+      <rect x="14" y="14" width="7" height="7" rx="1.2" />
+    </>
+  )}
+  {name === 'truck' && (
+    <>
+      <rect x="2" y="6" width="12" height="9" rx="1.2" />
+      <path d="M14 9h4l3 3v3h-7" />
+      <circle cx="7" cy="18" r="1.6" />
+      <circle cx="17" cy="18" r="1.6" />
+    </>
+  )}
+  {name === 'calendar' && (
+    <>
+      <rect x="3.5" y="5" width="17" height="15" rx="1.5" />
+      <path d="M8 3v4M16 3v4M3.5 10h17" />
+      <circle cx="8.5" cy="14" r="0.6" fill="currentColor" />
+      <circle cx="12" cy="14" r="0.6" fill="currentColor" />
+      <circle cx="15.5" cy="14" r="0.6" fill="currentColor" />
+    </>
+  )}
+  {name === 'heart' && (
+    <path d="M12 20.5s-7-4.6-9.2-9.1A4.6 4.6 0 0 1 12 6a4.6 4.6 0 0 1 9.2 5.4C19 15.9 12 20.5 12 20.5Z" />
+  )}
+  {name === 'arrow-right' && (
+    <>
+      <line x1="4" y1="12" x2="20" y2="12" />
+      <polyline points="13 5 20 12 13 19" />
+    </>
+  )}
+  {name === 'check' && (
+    <polyline points="4 12 10 18 20 6" />
+  )}
+  {name === 'sparkle' && (
+    <>
+      <path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8" />
+    </>
+  )}
+  {name === 'compass' && (
+    <>
+      <circle cx="12" cy="12" r="9" />
+      <polygon points="14.5 9.5 10 14 9.5 14.5 14 10" fill="currentColor" stroke="none" />
+    </>
+  )}
+  {name === 'code' && (
+    <>
+      <polyline points="8 17 3 12 8 7" />
+      <polyline points="16 7 21 12 16 17" />
+      <line x1="14" y1="4" x2="10" y2="20" />
+    </>
+  )}
+  {name === 'rocket' && (
+    <>
+      <path d="M5 19c0-3 2-5 5-5l5-5c2-2 4.5-2 6-2 0 1.5 0 4-2 6l-5 5c0 3-2 5-5 5" />
+      <circle cx="14.5" cy="9.5" r="1.2" />
+      <path d="M5 19c-1 0-2 1-2 2 1 0 2-1 2-2Z" />
+    </>
+  )}
+  {name === 'shield' && (
+    <>
+      <path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3Z" />
+      <polyline points="9 12 11.2 14.2 15 10.5" />
+    </>
+  )}
+  {name === 'search' && (
+    <>
+      <circle cx="11" cy="11" r="6" />
+      <line x1="20" y1="20" x2="15.5" y2="15.5" />
+    </>
+  )}
+  {name === 'phone-stack' && (
+    <>
+      <rect x="6" y="3" width="11" height="18" rx="1.6" />
+      <line x1="9.5" y1="18" x2="13.5" y2="18" />
+      <rect x="2" y="6" width="3" height="12" rx="0.8" opacity="0.45" />
+      <rect x="18" y="6" width="3" height="12" rx="0.8" opacity="0.45" />
+    </>
+  )}
+  {name === 'globe' && (
+    <>
+      <circle cx="12" cy="12" r="9" />
+      <line x1="3" y1="12" x2="21" y2="12" />
+      <path d="M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" />
+    </>
+  )}
+  {name === 'spark-line' && (
+    <>
+      <polyline points="3 16 8 11 12 14 16 8 21 11" />
+      <circle cx="16" cy="8" r="0.8" fill="currentColor" />
+    </>
+  )}
+</svg>

@@ -1,6 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
 import ServiceCard from '../components/ServiceCard.astro';
+import StatGrid from '../components/StatGrid.astro';
+import ProcessSteps from '../components/ProcessSteps.astro';
+import Icon from '../components/Icon.astro';
 import { SITE, WEB_SERVICES, APP_SERVICES } from '../lib/site';
 
 const title = SITE.name;
@@ -8,153 +12,213 @@ const description = SITE.description;
 ---
 
 <BaseLayout title={title} description={description}>
-  <!-- Hero -->
-  <section class="relative overflow-hidden">
-    <div class="max-w-6xl mx-auto px-5 pt-16 md:pt-24 pb-12 md:pb-16">
-      <div class="max-w-3xl">
-        <span class="inline-block text-xs font-medium tracking-wider uppercase text-[var(--color-accent)] mb-4">
-          UK software studio · est. 2026
-        </span>
-        <h1 class="text-4xl md:text-6xl font-semibold tracking-tight leading-[1.05] text-[var(--color-ink)]">
-          Web &amp; mobile,<br/>
-          <span class="text-[var(--color-accent)]">built from first principles.</span>
-        </h1>
-        <p class="mt-6 text-lg md:text-xl text-[var(--color-ink-soft)] leading-relaxed max-w-2xl">
-          We design and build modern websites and mobile apps end-to-end. From picking the right
-          domain and hosting to launch on the App Store and Google Play — one team, one contract,
-          start to finish.
-        </p>
-        <div class="mt-8 flex flex-wrap gap-3">
-          <a href="/contact" class="btn-primary">Start a project →</a>
-          <a href="/web" class="btn-ghost">See what we build</a>
-        </div>
+  <Hero image="/heroes/home.webp" size="tall" tint="navy">
+    <span class="kicker text-amber-300">UK software studio · est. 2026</span>
+    <h1 class="text-4xl md:text-6xl font-semibold tracking-tight leading-[1.05] hero-shadow">
+      Web &amp; mobile,<br/>
+      <span class="text-amber-300">built from first principles.</span>
+    </h1>
+    <p class="mt-6 text-lg md:text-xl text-slate-200/95 leading-relaxed max-w-2xl hero-shadow">
+      We design and build modern websites and mobile apps end-to-end. From picking the right
+      domain and hosting to launch on the App Store and Google Play — one team, one contract,
+      start to finish.
+    </p>
+    <div class="mt-9 flex flex-wrap gap-3">
+      <a href="/contact" class="btn-on-dark">
+        Start a project
+        <Icon name="arrow-right" size={18} />
+      </a>
+      <a href="/web" class="inline-flex items-center gap-2 px-6 py-3.5 text-white/90 hover:text-white border border-white/30 hover:border-white/60 rounded-lg font-medium transition-colors">
+        See what we build
+      </a>
+    </div>
+
+    <!-- Floating logo strip-style stat row -->
+    <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-4 max-w-3xl">
+      <div>
+        <div class="text-2xl md:text-3xl font-semibold tabular-nums">2</div>
+        <div class="text-xs text-slate-300 mt-0.5">Platforms<br/>iOS · Android</div>
+      </div>
+      <div>
+        <div class="text-2xl md:text-3xl font-semibold tabular-nums">7+</div>
+        <div class="text-xs text-slate-300 mt-0.5">Service<br/>categories covered</div>
+      </div>
+      <div>
+        <div class="text-2xl md:text-3xl font-semibold tabular-nums">2 days</div>
+        <div class="text-xs text-slate-300 mt-0.5">Reply to every<br/>enquiry</div>
+      </div>
+      <div>
+        <div class="text-2xl md:text-3xl font-semibold tabular-nums">£0</div>
+        <div class="text-xs text-slate-300 mt-0.5">For the proposal,<br/>scope &amp; quote</div>
       </div>
     </div>
-    <div aria-hidden="true" class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-[#2563EB]/5 via-transparent to-transparent pointer-events-none"></div>
-  </section>
+  </Hero>
 
   <!-- What we do -->
-  <section class="border-t border-[var(--color-border)] bg-white">
-    <div class="max-w-6xl mx-auto px-5 py-16 md:py-20">
-      <div class="grid md:grid-cols-2 gap-10 md:gap-16">
-        <div>
-          <h2 class="text-2xl md:text-3xl font-semibold tracking-tight mb-3">Websites</h2>
-          <p class="text-[var(--color-ink-soft)] leading-relaxed mb-6">
-            Storefronts, marketing sites, custom web applications. Built to be fast, indexable by
-            Google, and easy for you to update.
-          </p>
-          <div class="space-y-3">
-            {WEB_SERVICES.map((s) => (
-              <a href={s.href} class="flex items-start gap-3 group">
-                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] shrink-0"></span>
-                <span>
-                  <span class="font-medium text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors">{s.title}</span>
-                  <span class="block text-sm text-[var(--color-ink-soft)] mt-0.5">{s.blurb}</span>
-                </span>
-              </a>
-            ))}
-          </div>
-          <a href="/web" class="inline-flex items-center gap-1 mt-6 text-sm font-medium text-[var(--color-accent)] hover:text-[var(--color-accent-hover)]">
-            All web services →
-          </a>
-        </div>
+  <section class="border-b border-[var(--color-border)] bg-white relative overflow-hidden">
+    <div aria-hidden="true" class="absolute -top-32 -right-32 w-96 h-96 bg-[var(--color-accent)]/[0.04] rounded-full blur-3xl"></div>
 
-        <div>
-          <h2 class="text-2xl md:text-3xl font-semibold tracking-tight mb-3">Mobile apps</h2>
-          <p class="text-[var(--color-ink-soft)] leading-relaxed mb-6">
-            Native iPhone and Android apps. We handle design, development, store submission, and
-            ongoing updates so you can focus on your customers.
-          </p>
-          <div class="space-y-3">
-            {APP_SERVICES.map((s) => (
-              <a href={s.href} class="flex items-start gap-3 group">
-                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] shrink-0"></span>
-                <span>
-                  <span class="font-medium text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors">{s.title}</span>
-                  <span class="block text-sm text-[var(--color-ink-soft)] mt-0.5">{s.blurb}</span>
-                </span>
-              </a>
-            ))}
+    <div class="max-w-6xl mx-auto px-5 py-16 md:py-24 relative">
+      <div class="max-w-2xl mb-12 reveal">
+        <span class="kicker">What we do</span>
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight">
+          Two disciplines, one team
+        </h2>
+        <p class="mt-3 text-[var(--color-ink-soft)]">
+          Websites and mobile apps cover most of what a small or growing business needs from
+          software. We treat them as different crafts and bring the same end-to-end attention
+          to both.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 md:gap-10">
+        <article class="p-7 md:p-8 bg-white rounded-2xl border border-[var(--color-border)] hover:border-[var(--color-accent)] hover:shadow-lg transition-all reveal">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 rounded-xl bg-[var(--color-ink)] text-white flex items-center justify-center">
+              <Icon name="globe" size={22} />
+            </div>
+            <h3 class="text-xl md:text-2xl font-semibold tracking-tight">Websites</h3>
           </div>
-          <a href="/apps" class="inline-flex items-center gap-1 mt-6 text-sm font-medium text-[var(--color-accent)] hover:text-[var(--color-accent-hover)]">
-            All mobile services →
+          <p class="text-[var(--color-ink-soft)] leading-relaxed mb-6">
+            Storefronts, marketing sites, custom web applications. Built to be fast, indexable
+            by Google, and easy for you to update.
+          </p>
+          <ul class="space-y-3">
+            {WEB_SERVICES.map((s) => (
+              <li>
+                <a href={s.href} class="flex items-center gap-3 text-sm group/r">
+                  <span class="w-1 h-6 rounded-full bg-[var(--color-accent)] group-hover/r:h-7 transition-all"></span>
+                  <span>
+                    <span class="font-medium text-[var(--color-ink)] group-hover/r:text-[var(--color-accent)] transition-colors">{s.title}</span>
+                    <span class="block text-[13px] text-[var(--color-ink-soft)]">{s.blurb}</span>
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+          <a href="/web" class="inline-flex items-center gap-1 mt-6 text-sm font-medium text-[var(--color-accent)] hover:text-[var(--color-accent-hover)]">
+            All web services <Icon name="arrow-right" size={14} />
           </a>
-        </div>
+        </article>
+
+        <article class="p-7 md:p-8 bg-white rounded-2xl border border-[var(--color-border)] hover:border-[var(--color-accent)] hover:shadow-lg transition-all reveal">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 rounded-xl bg-[var(--color-ink)] text-white flex items-center justify-center">
+              <Icon name="phone-stack" size={22} />
+            </div>
+            <h3 class="text-xl md:text-2xl font-semibold tracking-tight">Mobile apps</h3>
+          </div>
+          <p class="text-[var(--color-ink-soft)] leading-relaxed mb-6">
+            Native iPhone and Android apps. We handle design, development, store submission,
+            and ongoing updates so you can focus on your customers.
+          </p>
+          <ul class="space-y-3">
+            {APP_SERVICES.map((s) => (
+              <li>
+                <a href={s.href} class="flex items-center gap-3 text-sm group/r">
+                  <span class="w-1 h-6 rounded-full bg-[var(--color-accent)] group-hover/r:h-7 transition-all"></span>
+                  <span>
+                    <span class="font-medium text-[var(--color-ink)] group-hover/r:text-[var(--color-accent)] transition-colors">{s.title}</span>
+                    <span class="block text-[13px] text-[var(--color-ink-soft)]">{s.blurb}</span>
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+          <a href="/apps" class="inline-flex items-center gap-1 mt-6 text-sm font-medium text-[var(--color-accent)] hover:text-[var(--color-accent-hover)]">
+            All mobile services <Icon name="arrow-right" size={14} />
+          </a>
+        </article>
       </div>
     </div>
   </section>
 
   <!-- How we work -->
-  <section class="bg-[var(--color-bg)]">
-    <div class="max-w-6xl mx-auto px-5 py-16 md:py-20">
-      <h2 class="text-2xl md:text-3xl font-semibold tracking-tight mb-3">End-to-end, with no gaps</h2>
-      <p class="text-[var(--color-ink-soft)] max-w-2xl leading-relaxed mb-10">
-        Most studios hand you a design and disappear, or write code without thinking about who has
-        to maintain it next year. We do the whole stack, on purpose. That means fewer hand-offs,
-        clearer accountability, and a project that ships.
-      </p>
+  <section class="bg-mesh">
+    <div class="max-w-6xl mx-auto px-5 py-16 md:py-24">
+      <div class="max-w-2xl mb-12 reveal">
+        <span class="kicker">How we work</span>
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight">End-to-end, with no gaps</h2>
+        <p class="mt-3 text-[var(--color-ink-soft)]">
+          Most studios hand you a design and disappear, or write code without thinking about who
+          has to maintain it next year. We do the whole stack, on purpose. Fewer hand-offs, clearer
+          accountability, a project that ships.
+        </p>
+      </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        <div class="p-6 bg-white border border-[var(--color-border)] rounded-xl">
-          <div class="text-xs font-mono text-[var(--color-accent)] mb-2">01</div>
-          <h3 class="font-semibold mb-2">Strategy</h3>
-          <p class="text-sm text-[var(--color-ink-soft)] leading-relaxed">
-            We listen first. Goals, audience, what success looks like, what's already in place. Then
-            we propose the smallest thing that can ship and prove the idea.
-          </p>
-        </div>
-        <div class="p-6 bg-white border border-[var(--color-border)] rounded-xl">
-          <div class="text-xs font-mono text-[var(--color-accent)] mb-2">02</div>
-          <h3 class="font-semibold mb-2">Setup</h3>
-          <p class="text-sm text-[var(--color-ink-soft)] leading-relaxed">
-            Domain registration, hosting choice, email, analytics, payments. We pick what's right
-            for your scale and budget — not what we'd pick for an enterprise client.
-          </p>
-        </div>
-        <div class="p-6 bg-white border border-[var(--color-border)] rounded-xl">
-          <div class="text-xs font-mono text-[var(--color-accent)] mb-2">03</div>
-          <h3 class="font-semibold mb-2">Design &amp; build</h3>
-          <p class="text-sm text-[var(--color-ink-soft)] leading-relaxed">
-            Modern stacks (Astro, Next.js, React Native, Swift, Kotlin). Code reviews, CI, semantic
-            HTML, accessibility. Built to be readable by the next developer.
-          </p>
-        </div>
-        <div class="p-6 bg-white border border-[var(--color-border)] rounded-xl">
-          <div class="text-xs font-mono text-[var(--color-accent)] mb-2">04</div>
-          <h3 class="font-semibold mb-2">Launch &amp; care</h3>
-          <p class="text-sm text-[var(--color-ink-soft)] leading-relaxed">
-            App Store and Play Store submission, monitoring, backups, security updates. Ongoing
-            support if you want it, or a clean handover if you have your own team.
-          </p>
-        </div>
+      <div class="reveal">
+        <ProcessSteps
+          steps={[
+            { num: '01', icon: 'compass', title: 'Strategy',
+              body: "We listen first. Goals, audience, what success looks like, what's already in place. Then we propose the smallest thing that can ship and prove the idea." },
+            { num: '02', icon: 'search', title: 'Setup',
+              body: "Domain registration, hosting choice, email, analytics, payments. We pick what's right for your scale and budget." },
+            { num: '03', icon: 'code', title: 'Design & build',
+              body: "Modern stacks (Astro, Next.js, React Native, Swift, Kotlin). Code reviews, CI, accessibility. Built to be readable by the next developer." },
+            { num: '04', icon: 'rocket', title: 'Launch & care',
+              body: "App Store and Play Store submission, monitoring, backups, security updates. Ongoing support if you want it, or a clean handover if you have your own team." },
+          ]}
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats / By the numbers -->
+  <section class="border-y border-[var(--color-border)] bg-white">
+    <div class="max-w-6xl mx-auto px-5 py-16 md:py-20">
+      <div class="max-w-2xl mb-10 reveal">
+        <span class="kicker">By the numbers</span>
+        <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">Honest numbers we stand behind</h2>
+        <p class="mt-3 text-[var(--color-ink-soft)] text-sm">
+          No invented metrics. The real ranges, what we charge, how we work — published up
+          front so you can decide if we're a fit before you write a brief.
+        </p>
+      </div>
+      <div class="reveal">
+        <StatGrid
+          items={[
+            { value: '£2.5k', label: 'From, marketing site',  detail: 'Five-page site, including light copy support.' },
+            { value: '£15k',  label: 'From, mobile app',       detail: 'Cross-platform, both stores, MVP scope.' },
+            { value: '6–10w', label: 'Typical web timeline',   detail: 'From signed proposal to live URL.' },
+            { value: '95+',   label: 'Lighthouse target',      detail: 'Performance, SEO, accessibility, best practice.' },
+          ]}
+        />
       </div>
     </div>
   </section>
 
   <!-- Why us -->
-  <section class="border-t border-[var(--color-border)] bg-white">
-    <div class="max-w-3xl mx-auto px-5 py-16 md:py-20">
-      <h2 class="text-2xl md:text-3xl font-semibold tracking-tight mb-6">Why work with a small studio</h2>
-      <div class="prose-body">
-        <p>
-          Big agencies have layers. Sales, account managers, project managers, designers, frontend,
-          backend, QA, devops — and somewhere down the chain, the person actually writing your code
-          who you'll never meet. By the time a request reaches them, half the context is gone.
-        </p>
-        <p>
-          Apriori Studio is small on purpose. The person you talk to is one of the people building.
-          That means decisions happen in hours, not weeks; trade-offs get explained in plain
-          English; and when something needs changing post-launch, there's no ticket queue to wait
-          in.
-        </p>
-        <p>
-          We're picky about which projects we take on, because we'd rather do a few things
-          properly than spread thin. If we're a fit, we'll tell you. If we're not, we'll point you
-          toward someone who is.
-        </p>
-      </div>
-      <div class="mt-8">
-        <a href="/contact" class="btn-primary">Tell us what you're working on →</a>
+  <section class="bg-white">
+    <div class="max-w-3xl mx-auto px-5 py-16 md:py-24">
+      <div class="reveal">
+        <span class="kicker">Why us</span>
+        <h2 class="text-2xl md:text-3xl font-semibold tracking-tight mb-6">Why work with a small studio</h2>
+        <div class="prose-body">
+          <p>
+            Big agencies have layers. Sales, account managers, project managers, designers,
+            frontend, backend, QA, devops — and somewhere down the chain, the person actually
+            writing your code who you'll never meet. By the time a request reaches them, half
+            the context is gone.
+          </p>
+          <p>
+            Apriori Studio is small on purpose. The person you talk to is one of the people
+            building. That means decisions happen in hours, not weeks; trade-offs get explained
+            in plain English; and when something needs changing post-launch, there's no ticket
+            queue to wait in.
+          </p>
+          <p>
+            We're picky about which projects we take on, because we'd rather do a few things
+            properly than spread thin. If we're a fit, we'll tell you. If we're not, we'll point
+            you toward someone who is.
+          </p>
+        </div>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="/contact" class="btn-primary">
+            Tell us what you're working on
+            <Icon name="arrow-right" size={18} />
+          </a>
+          <a href="/about" class="btn-ghost">More about us</a>
+        </div>
       </div>
     </div>
   </section>

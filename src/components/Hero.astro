@@ -1,0 +1,44 @@
+---
+interface Props {
+  image: string;
+  imageAlt?: string;
+  /** 'tall' for homepage, 'short' for inner pages */
+  size?: 'tall' | 'short';
+  /** Tint overlay color (any CSS color). Defaults to a dark navy gradient that always reads well. */
+  tint?: 'navy' | 'blue' | 'amber';
+}
+const { image, imageAlt = '', size = 'short', tint = 'navy' } = Astro.props;
+
+const heightClass = size === 'tall'
+  ? 'min-h-[78svh] md:min-h-[82svh]'
+  : 'min-h-[44svh] md:min-h-[52svh]';
+
+const tintGradient = {
+  navy:  'linear-gradient(180deg, rgba(15,23,42,0.55) 0%, rgba(15,23,42,0.78) 60%, rgba(15,23,42,0.95) 100%)',
+  blue:  'linear-gradient(180deg, rgba(15,23,42,0.45) 0%, rgba(30,58,138,0.65) 60%, rgba(15,23,42,0.95) 100%)',
+  amber: 'linear-gradient(180deg, rgba(15,23,42,0.55) 0%, rgba(120,53,15,0.45) 60%, rgba(15,23,42,0.95) 100%)',
+}[tint];
+---
+<section class={`relative isolate overflow-hidden bg-[var(--color-ink)] text-white ${heightClass} flex items-center`}>
+  <img
+    src={image}
+    alt={imageAlt}
+    aria-hidden={imageAlt === ''}
+    loading="eager"
+    decoding="async"
+    fetchpriority="high"
+    class="absolute inset-0 w-full h-full object-cover -z-10 select-none pointer-events-none"
+  />
+  <div class="absolute inset-0 -z-10" style={`background:${tintGradient}`} aria-hidden="true"></div>
+
+  <!-- Decorative grain (tiny dots), increases premium feel without weight -->
+  <div
+    aria-hidden="true"
+    class="absolute inset-0 -z-10 opacity-[0.07] mix-blend-overlay pointer-events-none"
+    style="background-image: radial-gradient(rgba(255,255,255,0.6) 0.5px, transparent 0.5px); background-size: 4px 4px;"
+  ></div>
+
+  <div class="relative w-full max-w-6xl mx-auto px-5 py-16 md:py-24">
+    <slot />
+  </div>
+</section>

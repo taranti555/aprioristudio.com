@@ -1,0 +1,20 @@
+---
+interface Stat {
+  value: string;
+  label: string;
+  detail?: string;
+}
+interface Props {
+  items: Stat[];
+}
+const { items } = Astro.props;
+---
+<dl class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+  {items.map((it) => (
+    <div class="p-6 bg-white border border-[var(--color-border)] rounded-xl hover:border-[var(--color-accent)] hover:shadow-sm transition-all">
+      <dt class="text-3xl md:text-4xl font-semibold text-[var(--color-ink)] tracking-tight tabular-nums">{it.value}</dt>
+      <dd class="mt-1 text-sm font-medium text-[var(--color-accent)]">{it.label}</dd>
+      {it.detail && <dd class="mt-2 text-xs text-[var(--color-ink-soft)] leading-relaxed">{it.detail}</dd>}
+    </div>
+  ))}
+</dl>

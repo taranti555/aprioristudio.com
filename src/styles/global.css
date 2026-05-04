@@ -73,9 +73,15 @@ body {
   color: white;
   border-radius: 0.5rem;
   font-weight: 500;
-  transition: background 0.15s;
+  transition: background 0.15s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04), 0 4px 14px -4px rgba(37, 99, 235, 0.4);
 }
-.btn-primary:hover { background: var(--color-accent-hover); }
+.btn-primary:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04), 0 8px 22px -6px rgba(37, 99, 235, 0.55);
+}
+.btn-primary:active { transform: translateY(0); }
 
 .btn-ghost {
   display: inline-flex;
@@ -92,4 +98,63 @@ body {
 .btn-ghost:hover {
   background: var(--color-surface);
   border-color: var(--color-ink-soft);
+  transform: translateY(-1px);
+}
+
+.btn-on-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.6rem;
+  background: rgba(255,255,255,0.92);
+  color: var(--color-ink);
+  border-radius: 0.6rem;
+  font-weight: 600;
+  transition: all 0.18s;
+  backdrop-filter: blur(6px);
+}
+.btn-on-dark:hover {
+  background: white;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 36px -8px rgba(0,0,0,0.6);
+}
+
+/* Subtle scroll-fade-in (respects reduced motion) */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mesh-gradient backdrop for light sections (used sparingly) */
+.bg-mesh {
+  background:
+    radial-gradient(at 8% 12%, rgba(37, 99, 235, 0.06) 0px, transparent 50%),
+    radial-gradient(at 92% 6%, rgba(245, 158, 11, 0.05) 0px, transparent 50%),
+    radial-gradient(at 50% 100%, rgba(15, 23, 42, 0.04) 0px, transparent 60%);
+}
+
+/* Tabular nums helper */
+.tabular-nums { font-variant-numeric: tabular-nums; }
+
+/* Section heading kicker */
+.kicker {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 0.6rem;
+}
+
+/* Hero text shadow for legibility on busy backgrounds */
+.hero-shadow {
+  text-shadow: 0 1px 2px rgba(0,0,0,0.25), 0 6px 22px rgba(0,0,0,0.35);
 }
