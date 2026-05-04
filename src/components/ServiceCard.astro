@@ -1,0 +1,24 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  blurb: string;
+}
+const { href, title, blurb } = Astro.props;
+---
+<a
+  href={href}
+  class="group block p-6 bg-white border border-[var(--color-border)] rounded-xl hover:border-[var(--color-accent)] hover:shadow-md transition-all"
+>
+  <h3 class="text-lg font-semibold text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors mb-2">
+    {title}
+  </h3>
+  <p class="text-sm text-[var(--color-ink-soft)] leading-relaxed mb-4">{blurb}</p>
+  <span class="inline-flex items-center gap-1 text-sm font-medium text-[var(--color-accent)]">
+    Learn more
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-0.5 transition-transform">
+      <line x1="5" y1="12" x2="19" y2="12"></line>
+      <polyline points="12 5 19 12 12 19"></polyline>
+    </svg>
+  </span>
+</a>

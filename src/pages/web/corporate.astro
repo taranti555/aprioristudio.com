@@ -1,0 +1,127 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+
+const title = 'Corporate &amp; marketing website development';
+const description =
+  'Fast, indexable presentation websites for small businesses, agencies, and B2B brands. Design, copy, build, hosting and SEO from one team.';
+---
+
+<ServiceLayout
+  title={title}
+  description={description}
+  serviceType="Corporate website development"
+  breadcrumbs={[
+    { href: '/', label: 'Home' },
+    { href: '/web', label: 'Websites' },
+    { href: '/web/corporate', label: 'Corporate &amp; marketing' },
+  ]}
+>
+  <p>
+    Most company websites do one of three jobs: convince a visitor to get in touch, convince a
+    visitor to buy, or convince a visitor that the company is real and competent. Often all
+    three. We build presentation websites that do those jobs honestly — without stock photos
+    of handshakes, without buzzword salads, without animations that break on slower phones.
+  </p>
+
+  <h2>What we build</h2>
+  <p>
+    The category covers a lot of shapes. A one-page landing site for a new product. A
+    five-to-ten page company website for a small business that needs services, about, blog and
+    contact. A twenty-page site for an agency or consultancy with case studies and team bios. A
+    fifty-page content hub for a B2B company that uses the site as a sales tool.
+  </p>
+  <p>
+    For all of these we usually pick a static site generator — <strong>Astro</strong>, Next.js
+    (static export), Hugo, or Eleventy — paired with a lightweight content management system if
+    you want to update copy yourself. Static sites are nearly impossible to break, load
+    instantly, work brilliantly on cheap hosting, and get crawled and indexed properly by search
+    engines. Unless you have an actual reason to need WordPress (e.g., your team already knows
+    it), we don't recommend it for new builds — the maintenance burden is real.
+  </p>
+
+  <h2>End-to-end work</h2>
+
+  <h3>Strategy and structure</h3>
+  <p>
+    Before we draw a single page, we work out who's coming to your site, what they're looking
+    for, what the next step is, and what would stop them taking it. The page structure follows
+    from that, not from a generic template. Most sites have too many pages — we usually end up
+    with fewer than the brief asked for.
+  </p>
+
+  <h3>Domain, email and hosting</h3>
+  <p>
+    We help pick and register your domain, set up email through Google Workspace, Microsoft
+    365 or our own mail server, and configure DNS so messages from your domain authenticate
+    correctly. For hosting, a small VPS or a CDN-backed static host handles a presentation site
+    for the cost of a coffee per month — we'll show you the options.
+  </p>
+
+  <h3>Visual design</h3>
+  <p>
+    We design from a small set of reusable components — type scale, colour palette, button
+    styles, card patterns — rather than treating each page as a one-off. That keeps the site
+    looking consistent and means changes later (a new section, a new template) take hours
+    rather than days. Brand assets you already have, we use; brand assets you don't yet have,
+    we help you decide on the minimum needed.
+  </p>
+
+  <h3>Copywriting support</h3>
+  <p>
+    We can edit the copy you've written, write a draft you can refine, or work alongside a
+    copywriter you bring. Either way we'll push for plain English over jargon — it ranks better
+    in search and converts better in real life. If you don't have copy yet, we'll help you
+    work out the structure first so the writing has somewhere to go.
+  </p>
+
+  <h3>SEO that actually helps</h3>
+  <p>
+    Title tags and meta descriptions per page, clean URL structure, sitemap, robots.txt,
+    schema.org structured data (Organization, BreadcrumbList, Article where appropriate),
+    Open Graph and Twitter Card tags so links shared on social show a proper preview, fast
+    load times (Core Web Vitals all green), accessible markup. We don't promise specific
+    rankings — anyone who does is lying — but we make sure your site is technically excellent
+    so good content has a chance to rank.
+  </p>
+
+  <h3>Forms, analytics and integrations</h3>
+  <p>
+    Contact forms that go straight to your inbox (and a database, so nothing's lost). Analytics
+    (Plausible if you want privacy-friendly, GA4 if you want the standard). Newsletter signups
+    (MailerLite, ConvertKit, MailChimp). Calendly or Cal.com for booking calls. CRM
+    integrations (HubSpot, Pipedrive, Salesforce) if you have a sales pipeline.
+  </p>
+
+  <h3>Easy updates afterwards</h3>
+  <p>
+    If you want to update copy or add blog posts yourself, we wire up a lightweight CMS — usually
+    one with a clean editor that doesn't require training. If you'd rather we handle updates,
+    that's also fine: most small changes take fifteen minutes and we charge by the hour.
+  </p>
+
+  <h2>Performance and accessibility</h2>
+  <p>
+    Every page we ship aims for a Lighthouse score of 95+ across performance, accessibility,
+    best practices, and SEO. We use semantic HTML, proper heading hierarchy, sufficient colour
+    contrast, keyboard-navigable forms, and alt text on every image. For most companies this
+    is a nice-to-have; for some (especially in the public sector or selling to large
+    enterprises), it's required by law or by procurement.
+  </p>
+
+  <h2>What it costs</h2>
+  <p>
+    A clean five-page company site lands between £2,500 and £4,500 depending on how much
+    design and copy work you need. A larger site with a blog, case studies and a couple of
+    custom landing pages runs £4,500 to £9,000. Hosting and domain run a few pounds a month
+    each. We'll quote in writing with a fixed price and timeline, and we won't ask for changes
+    to scope without putting them in writing first.
+  </p>
+
+  <h2>Timeline</h2>
+  <p>
+    A small site goes from kickoff to launch in three to five weeks. A larger site or one
+    requiring custom illustration or video takes six to ten. We share progress at each step,
+    you see staging URLs early, and the launch itself is undramatic — usually a Tuesday
+    morning, nothing on fire.
+  </p>
+</ServiceLayout>

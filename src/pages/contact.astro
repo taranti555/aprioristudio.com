@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import ContactForm from '../components/ContactForm.astro';
+import JsonLd from '../components/JsonLd.astro';
+import { SITE } from '../lib/site';
+
+const title = 'Contact Apriori Studio';
+const description =
+  'Get in touch with Apriori Studio about a website or mobile app project. We reply to all enquiries within two business days.';
+
+const ld = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: title,
+  description,
+  url: SITE.url + '/contact',
+  mainEntity: {
+    '@type': 'Organization',
+    name: SITE.name,
+    email: SITE.email.contact,
+  },
+};
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="max-w-3xl mx-auto px-5 py-10 md:py-14">
+    <Breadcrumbs items={[
+      { href: '/', label: 'Home' },
+      { href: '/contact', label: 'Contact' },
+    ]} />
+
+    <header class="mb-8">
+      <h1 class="text-3xl md:text-4xl font-semibold tracking-tight leading-tight">
+        Tell us about your project
+      </h1>
+      <p class="mt-3 text-lg text-[var(--color-ink-soft)]">
+        We reply to all enquiries within two business days. The more you tell us, the more
+        useful our first reply will be.
+      </p>
+    </header>
+
+    <div class="grid md:grid-cols-3 gap-10 md:gap-14">
+      <section class="md:col-span-2">
+        <ContactForm />
+      </section>
+
+      <aside class="space-y-6 text-sm">
+        <div>
+          <h2 class="font-semibold text-[var(--color-ink)] mb-2">Email</h2>
+          <p>
+            <a href={`mailto:${SITE.email.contact}`} class="text-[var(--color-accent)] hover:underline">{SITE.email.contact}</a>
+          </p>
+          <p class="text-[var(--color-ink-soft)] text-xs mt-1">
+            Mikhail Pogossov, Founder
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-semibold text-[var(--color-ink)] mb-2">Studio</h2>
+          <p class="text-[var(--color-ink-soft)] leading-relaxed">
+            Apriori Ltd<br />
+            London, England<br />
+            United Kingdom
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-semibold text-[var(--color-ink)] mb-2">What we'll ask</h2>
+          <ul class="text-[var(--color-ink-soft)] space-y-1.5 leading-relaxed">
+            <li>What you're trying to build</li>
+            <li>Who it's for</li>
+            <li>Your timeline</li>
+            <li>Your budget range, if you have one</li>
+          </ul>
+        </div>
+
+        <div class="text-xs text-[var(--color-ink-soft)] leading-relaxed pt-4 border-t border-[var(--color-border)]">
+          We treat every enquiry as confidential. We don't share your information with third
+          parties or send you marketing email. See our <a href="/privacy" class="text-[var(--color-accent)] hover:underline">privacy policy</a>.
+        </div>
+      </aside>
+    </div>
+
+    <JsonLd data={ld} />
+  </article>
+</BaseLayout>

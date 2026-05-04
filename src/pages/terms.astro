@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+const title = 'Terms of use';
+const description =
+  'Terms governing your use of the aprioristudio.com website. Plain English summary of what you can and cannot do here.';
+const updated = '2026-05-04';
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="max-w-3xl mx-auto px-5 py-10 md:py-14">
+    <Breadcrumbs items={[
+      { href: '/', label: 'Home' },
+      { href: '/terms', label: 'Terms of use' },
+    ]} />
+
+    <header class="mb-8">
+      <h1 class="text-3xl md:text-4xl font-semibold tracking-tight">Terms of use</h1>
+      <p class="mt-2 text-sm text-[var(--color-ink-soft)]">Last updated: {updated}</p>
+    </header>
+
+    <div class="prose-body">
+      <p>
+        These terms govern your use of aprioristudio.com, the website operated by Apriori Ltd, a
+        private limited company registered in England and Wales. By using the site, you agree
+        to these terms. If you don't agree, please don't use the site.
+      </p>
+      <p>
+        These terms cover the website only. They are not the contract under which we deliver
+        client work — that's a separate written agreement signed before any project begins.
+      </p>
+
+      <h2>What this site is</h2>
+      <p>
+        aprioristudio.com is a marketing website describing the services we offer (web and
+        mobile app development) and a way to get in touch with us. The information here is for
+        general informational purposes. It's not a contract, an offer, or professional advice.
+        We update content from time to time without notice.
+      </p>
+
+      <h2>Acceptable use</h2>
+      <p>
+        You may view the site, follow links, and submit the contact form for legitimate
+        enquiries. You may not:
+      </p>
+      <ul>
+        <li>Use the contact form to send spam, marketing, or automated submissions</li>
+        <li>Attempt to probe, scan, or test the security of the site or attempt to breach security or authentication measures</li>
+        <li>Try to overload the site (denial-of-service attacks, mass scraping, etc.)</li>
+        <li>Use the site or its contents in any way that breaks UK law</li>
+        <li>Reverse-engineer, decompile, or copy any part of the site for commercial purposes without written permission</li>
+      </ul>
+
+      <h2>Intellectual property</h2>
+      <p>
+        All content on this website — text, images, logos, code, design — is owned by Apriori
+        Ltd or used under licence, and is protected by UK and international copyright law. You
+        may quote short excerpts for non-commercial purposes (a review, a citation, a social
+        media post linking back to us) provided you credit the source. Republishing whole pages,
+        copying our logo, or imitating our design for commercial purposes requires written
+        permission.
+      </p>
+
+      <h2>Links to other websites</h2>
+      <p>
+        The site may contain links to third-party websites for reference. We don't control
+        those sites, we don't endorse their content, and we're not responsible for them. If you
+        follow an external link, you do so at your own risk and are subject to their terms and
+        privacy policies, not ours.
+      </p>
+
+      <h2>Disclaimers and limitation of liability</h2>
+      <p>
+        We try to keep the site accurate and up to date but make no warranties that all content
+        is current, complete, or error-free. The site is provided "as is." We don't accept
+        liability for any loss or damage arising from your use of (or inability to use) this
+        website, except where such liability cannot be excluded under UK law (for example,
+        liability for death or personal injury caused by negligence).
+      </p>
+
+      <h2>Privacy</h2>
+      <p>
+        Use of the site is also governed by our <a href="/privacy">privacy policy</a>, which
+        explains what personal information we collect and how we use it.
+      </p>
+
+      <h2>Governing law</h2>
+      <p>
+        These terms are governed by the laws of England and Wales. Any dispute arising in
+        connection with these terms is subject to the exclusive jurisdiction of the courts of
+        England and Wales.
+      </p>
+
+      <h2>Changes to these terms</h2>
+      <p>
+        We may update these terms from time to time. The "last updated" date at the top of this
+        page reflects the most recent change. By continuing to use the site after an update,
+        you accept the revised terms.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        Questions about these terms can be sent to
+        <a href="mailto:mp@aprioristudio.com">mp@aprioristudio.com</a>.
+      </p>
+    </div>
+  </article>
+</BaseLayout>

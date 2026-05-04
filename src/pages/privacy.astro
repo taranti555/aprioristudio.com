@@ -1,0 +1,125 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { SITE } from '../lib/site';
+
+const title = 'Privacy policy';
+const description =
+  'How Apriori Studio collects, uses and protects information you share with us through this website.';
+const updated = '2026-05-04';
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="max-w-3xl mx-auto px-5 py-10 md:py-14">
+    <Breadcrumbs items={[
+      { href: '/', label: 'Home' },
+      { href: '/privacy', label: 'Privacy policy' },
+    ]} />
+
+    <header class="mb-8">
+      <h1 class="text-3xl md:text-4xl font-semibold tracking-tight">Privacy policy</h1>
+      <p class="mt-2 text-sm text-[var(--color-ink-soft)]">Last updated: {updated}</p>
+    </header>
+
+    <div class="prose-body">
+      <p>
+        This page explains what information Apriori Studio (operating as Apriori Ltd, a company
+        registered in England and Wales) collects through aprioristudio.com, what we do with it,
+        and how you can ask us to delete it. We try to write this in plain English. If anything
+        is unclear, email us at <a href={`mailto:${SITE.email.contact}`}>{SITE.email.contact}</a>
+        and we'll explain.
+      </p>
+
+      <h2>Who we are</h2>
+      <p>
+        Apriori Ltd ("we," "us," "our") is the data controller for personal data submitted
+        through this website. Our registered office is in London, United Kingdom. You can reach
+        us at <a href={`mailto:${SITE.email.contact}`}>{SITE.email.contact}</a>.
+      </p>
+
+      <h2>What we collect</h2>
+      <p>
+        We collect personal data only when you actively give it to us — typically by filling in
+        the contact form on this site. That data consists of:
+      </p>
+      <ul>
+        <li>Your name</li>
+        <li>Your email address</li>
+        <li>The subject and content of your message</li>
+        <li>Your IP address and the browser/device information your browser sends with the request (used for spam protection and abuse prevention)</li>
+        <li>The page you came from (HTTP referer), if your browser sent it</li>
+      </ul>
+      <p>
+        We do not use cookies on this website. We do not run third-party analytics that track
+        you across other sites. We do not sell or share your information with advertisers.
+      </p>
+
+      <h2>Why we collect it</h2>
+      <p>
+        We use the information you submit through the contact form to reply to your enquiry,
+        to discuss potential project work, and to keep a record of correspondence. The legal
+        basis under UK GDPR is "legitimate interests" (replying to a person who has contacted
+        us asking for a reply) and "performance of a contract / steps prior to entering a
+        contract."
+      </p>
+
+      <h2>How long we keep it</h2>
+      <p>
+        Contact form submissions are kept for up to twenty-four months from the last
+        correspondence, after which they're deleted from our systems. If our exchange leads to
+        a project, we keep relevant communications for the duration of the project plus six
+        years (UK statutory record-keeping for limited companies).
+      </p>
+
+      <h2>Who we share it with</h2>
+      <p>
+        We don't share personal data with third parties for marketing or commercial purposes.
+        The information you submit is processed by:
+      </p>
+      <ul>
+        <li>Our hosting provider (the server that runs this website)</li>
+        <li>Our email provider (the mail server that delivers messages between us)</li>
+        <li>Where strictly necessary, professional advisers (accountants, lawyers) under confidentiality</li>
+      </ul>
+      <p>
+        We do not transfer your data outside the United Kingdom or European Economic Area for
+        marketing purposes. Some of our infrastructure providers may store backups in the EU;
+        these transfers are covered by the appropriate safeguards (Standard Contractual
+        Clauses or adequacy decisions).
+      </p>
+
+      <h2>Your rights</h2>
+      <p>
+        Under UK GDPR you have the right to:
+      </p>
+      <ul>
+        <li>Ask for a copy of any personal data we hold about you</li>
+        <li>Ask us to correct inaccurate data</li>
+        <li>Ask us to delete data we no longer need</li>
+        <li>Object to processing in certain circumstances</li>
+        <li>Lodge a complaint with the Information Commissioner's Office (ICO) at ico.org.uk</li>
+      </ul>
+      <p>
+        To exercise any of these rights, email us at
+        <a href={`mailto:${SITE.email.contact}`}>{SITE.email.contact}</a>. We'll respond within
+        thirty days.
+      </p>
+
+      <h2>Security</h2>
+      <p>
+        We use HTTPS across the whole site. Submissions to our contact form are stored in a
+        database that's accessible only over a private network connection from the web server.
+        We apply security updates promptly and back up the database regularly. No system is
+        perfectly secure, but we treat personal data with the level of care we'd want for our
+        own.
+      </p>
+
+      <h2>Changes to this policy</h2>
+      <p>
+        If we change this policy materially, we'll update the date at the top of this page.
+        For minor wording changes (clarifications, typo fixes), we'll just publish the
+        updated text.
+      </p>
+    </div>
+  </article>
+</BaseLayout>

@@ -1,0 +1,137 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+
+const title = 'Booking &amp; reservation app development';
+const description =
+  'Booking apps for restaurants, salons, hotels, fitness studios and clinics. Calendars, slots, payments, reminders and recurring reservations — built for both iPhone and Android.';
+---
+
+<ServiceLayout
+  title={title}
+  description={description}
+  serviceType="Booking and reservation mobile app development"
+  breadcrumbs={[
+    { href: '/', label: 'Home' },
+    { href: '/apps', label: 'Mobile apps' },
+    { href: '/apps/booking', label: 'Booking &amp; reservation' },
+  ]}
+>
+  <p>
+    Booking apps are deceptively simple. Show available slots, let someone book one, send a
+    reminder, take payment. The complexity arrives the moment a real business uses it: staff
+    schedules, multiple locations, services with different durations, deposits, cancellation
+    policies, recurring appointments, group bookings, no-show fees, integrations with the
+    calendar the business actually runs on. We build booking apps with all of those in mind,
+    so the operator's daily life is genuinely easier than the spreadsheet they're replacing.
+  </p>
+
+  <h2>What we build</h2>
+  <p>
+    Restaurant reservations (with deposits, party size, special requests, integration with the
+    kitchen's POS). Hair and beauty bookings (per-stylist availability, service durations,
+    add-ons, walk-in support). Hotel and short-let bookings (calendar with seasonal pricing,
+    deposits, channel manager integration). Fitness class and personal training bookings (group
+    classes with capacity, cancellation cutoffs, packages of credits, recurring weekly
+    bookings). Medical and clinical appointments (with intake forms, GDPR-compliant data
+    handling, NHS or private). Equipment and resource bookings (meeting rooms, gym courts,
+    studios). The patterns repeat; the details vary.
+  </p>
+
+  <h2>End-to-end work</h2>
+
+  <h3>The calendar (the engine)</h3>
+  <p>
+    Underneath every booking app is a calendar engine that has to answer "is this slot
+    available?" instantly, accounting for staff availability, room capacity, service duration,
+    buffers between appointments, lead time, advance booking limits, recurring blocks, holidays,
+    and time zones. Done badly, this is the part that makes the app slow or wrong. We build it
+    properly using a tested availability algorithm and cache the results carefully so a busy
+    booking screen doesn't hammer your database.
+  </p>
+
+  <h3>Customer-facing booking flow</h3>
+  <p>
+    Browse services, pick a date, see available slots, pick one, log in or sign up if needed,
+    optionally pay a deposit, confirm. We design this to be possible in under a minute, with
+    progressive disclosure (extra fields shown only when needed). For repeat customers, "book
+    the usual" should be one tap. Apple Pay and Google Pay for deposits to keep checkout
+    friction low.
+  </p>
+
+  <h3>Operator (business) app or web dashboard</h3>
+  <p>
+    The operator side is where booking apps make or break their value. We build either a
+    second app or a responsive web dashboard depending on how the business actually works
+    (front-of-house staff often prefer a tablet web view, mobile owners prefer an app). It
+    needs: a daily/weekly calendar view that's quick to glance at, drag-to-reschedule, blocking
+    out slots, walk-ins, no-show marking, deposit refunds, customer notes. We build it from
+    real-world operator workflows, not abstractions.
+  </p>
+
+  <h3>Notifications and reminders</h3>
+  <p>
+    Confirmation immediately. Reminder twenty-four hours before. Reminder two hours before
+    (catches the morning-of-day customers). Push, email, SMS — configurable per customer.
+    Cancellation deadline reminders. Re-booking suggestions for regular customers. We tune the
+    notification mix so it's helpful, not nagging.
+  </p>
+
+  <h3>Payments, deposits and cancellation policies</h3>
+  <p>
+    Stripe for card payments. Deposits at booking time (refundable per policy). No-show fees
+    charged automatically per the policy you set (with proper card-on-file handling). Tipping
+    where appropriate. Discount codes and gift vouchers. Recurring billing for membership
+    packages (e.g., 10-class fitness packs, monthly memberships). Refunds initiated by the
+    operator with audit trail.
+  </p>
+
+  <h3>Recurring and group bookings</h3>
+  <p>
+    Weekly classes that customers can book one-off, in a series, or via a recurring
+    subscription. Group bookings (a party of six in a restaurant; a class of twelve in a
+    yoga studio) with capacity tracking and waitlists. Family or team accounts where one
+    person books for several. These features sound niche but they're often the deal-breaker
+    that makes or kills adoption.
+  </p>
+
+  <h3>Integrations with existing tools</h3>
+  <p>
+    Sync with Google Calendar, Outlook, iCloud — so the operator's existing calendar shows
+    bookings without manual data entry. Two-way sync to keep external blocks reflected. POS
+    integrations for restaurants (Square, Lightspeed). Channel manager integration for short-let
+    rentals (Booking.com, Airbnb via channel managers like Hostaway). Accounting integrations
+    (Xero, QuickBooks) for end-of-month reconciliation.
+  </p>
+
+  <h3>GDPR, intake forms and data handling</h3>
+  <p>
+    For medical, beauty, and clinical bookings, intake forms collect health information that
+    has to be stored properly. We build encrypted-at-rest storage, GDPR-compliant data
+    retention and deletion, audit logs for who accessed what. For everyone: cookie consent,
+    right to export and delete data, marketing-consent separated from booking-consent.
+  </p>
+
+  <h2>Pricing model</h2>
+  <p>
+    Booking apps work well as SaaS — operators pay you a monthly fee, you take a small cut
+    of bookings, or both. We design the billing to match how the operators in your category
+    think (per-location, per-staff-seat, per-booking, flat-rate). Multi-tenancy is baked in
+    from day one so you can onboard one operator or a thousand without re-architecting.
+  </p>
+
+  <h2>What it costs</h2>
+  <p>
+    A booking app for a single business (one location, single platform) starts at £15,000.
+    A multi-tenant SaaS booking platform serving multiple operators starts at £35,000 and
+    scales up with the integrations and complexity of the operator dashboard. Hosting, SMS
+    fees (Twilio or similar), and Stripe processing fees are billed to you directly.
+  </p>
+
+  <h2>Timeline</h2>
+  <p>
+    Single-business booking app: ten to fourteen weeks. Multi-tenant SaaS booking platform:
+    eighteen to twenty-eight weeks for a working v1, then ongoing as you onboard customers and
+    learn what they actually need. We always ship a working build to TestFlight every two
+    weeks so you can use it during development.
+  </p>
+</ServiceLayout>

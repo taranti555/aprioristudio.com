@@ -1,0 +1,143 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+
+const title = 'Fitness &amp; health app development';
+const description =
+  'Fitness, health and telemedicine app development for iOS and Android. Workouts, tracking, HealthKit and Google Fit integration, wearables, and secure handling of personal health data.';
+---
+
+<ServiceLayout
+  title={title}
+  description={description}
+  serviceType="Fitness and health mobile app development"
+  breadcrumbs={[
+    { href: '/', label: 'Home' },
+    { href: '/apps', label: 'Mobile apps' },
+    { href: '/apps/fitness', label: 'Fitness &amp; health' },
+  ]}
+>
+  <p>
+    Fitness and health is one of the largest app categories on both stores, and one of the
+    most competitive — most people have tried two or three apps before they keep one. The apps
+    that win aren't the ones with the most features; they're the ones that fit smoothly into
+    a habit. We build fitness, wellness and health apps with that fit in mind, paying close
+    attention to the parts that matter (onboarding, motivation, data accuracy, privacy) and
+    skipping the parts that don't.
+  </p>
+
+  <h2>What we build</h2>
+  <p>
+    Workout apps with structured programmes (strength, hypertrophy, endurance, beginner). Class
+    streaming apps (live or on-demand video, with offline downloads). Habit and tracking apps
+    (steps, water, sleep, mood, supplements, custom metrics). Nutrition tracking with food
+    databases and barcode scanning. Personal coach apps for trainers and their clients. Yoga,
+    meditation, mindfulness and breathwork apps. Telemedicine and remote consultation apps.
+    Recovery and physiotherapy apps with exercise videos and progress tracking. Run and ride
+    tracking apps with maps, splits, and route saving.
+  </p>
+
+  <h2>End-to-end work</h2>
+
+  <h3>HealthKit and Google Fit integration</h3>
+  <p>
+    Most fitness apps benefit from reading existing health data — steps from the user's phone,
+    heart rate from a smartwatch, sleep tracked by another app, workouts from a Garmin or
+    Strava. iOS does this through HealthKit; Android through Google Fit (and now Health
+    Connect). We integrate both with the right permission flows and the right write-back
+    behaviour (so workouts done in your app appear in Apple Fitness or Samsung Health).
+  </p>
+
+  <h3>Wearable support</h3>
+  <p>
+    Apple Watch companion apps with watchOS workouts and complications. Wear OS apps for
+    Android. Heart-rate and sensor read from supported devices. Background sync so a workout
+    started on the watch appears on the phone instantly. We design the watch interface
+    separately — a watch screen with the same density as a phone screen is unusable.
+  </p>
+
+  <h3>Workout and programme structure</h3>
+  <p>
+    Programme builder for trainers (or for in-house content creators). Sets, reps, weights,
+    tempo, rest. Supersets and circuits. Progress tracking across sessions with one-rep-max
+    estimation. Form-cue videos embedded next to each exercise. Substitutions when equipment
+    isn't available. We build the programme engine generic enough to support strength,
+    cardio, mobility, yoga, and bodyweight without separate code paths.
+  </p>
+
+  <h3>Video content (live and on-demand)</h3>
+  <p>
+    For class streaming or instructor videos, we use a proper video CDN (Mux, Cloudflare
+    Stream, or BunnyCDN) with adaptive bitrate so playback works on slow connections without
+    buffering. Offline downloads with DRM if you sell premium content. Picture-in-picture
+    support on iOS so the user can keep watching while taking notes.
+  </p>
+
+  <h3>Nutrition and food tracking</h3>
+  <p>
+    Food database integration (Open Food Facts, USDA, FatSecret, or Nutritionix depending on
+    region and accuracy needs). Barcode scanning that works in low light. Photo recognition for
+    meal logging if you want it (with realistic expectations — it's improving but still
+    imperfect). Macro tracking, calorie goals, custom recipes. Water and supplement reminders.
+  </p>
+
+  <h3>Habit, tracking and motivation</h3>
+  <p>
+    Streaks (used carefully — they're powerful but break motivation when they snap). Weekly
+    summaries. Charts that make progress visible across weeks and months, not just days.
+    Reminders at the right moment in the day, learned from when the user actually opens the
+    app. Achievement unlocks where appropriate; not where they feel patronising.
+  </p>
+
+  <h3>Coaching and messaging</h3>
+  <p>
+    For coaching apps, the trainer-client relationship is the product. Asynchronous video
+    messaging (record once, play back with notes). Programme assignment per client. Progress
+    review across weeks. Check-in forms. Group coaching with a feed and comments. Payment
+    splits if you operate a marketplace of trainers. Stripe Connect for payouts.
+  </p>
+
+  <h3>Telemedicine and clinical features</h3>
+  <p>
+    Secure messaging that meets the requirements for clinical communication (in the UK, that
+    typically means data residency, audit logs, and consent capture). Video consultations with
+    waiting rooms (Daily.co, Twilio Video, or built on WebRTC). Prescription handling if you
+    integrate with EMIS, TPP, or another clinical system. Symptom tracking. Appointment
+    reminders that don't include identifying clinical detail in push notifications.
+  </p>
+
+  <h3>Privacy and data security</h3>
+  <p>
+    Health data has the highest privacy expectations of any app category, and the regulators
+    notice. We encrypt sensitive fields at rest, transmit over TLS only, separate consent for
+    different uses (the user can opt into research data sharing without opting into marketing).
+    Apple's HealthKit data must stay on-device or have explicit user permission to leave.
+    Google's Health Connect has similar rules. We implement these correctly so reviewers don't
+    push back at submission and so users trust your app long-term.
+  </p>
+
+  <h3>Subscriptions and free trials</h3>
+  <p>
+    Most fitness apps run on subscription. Apple's StoreKit and Google Play Billing handle
+    auto-renewal, prorated upgrades, free trials, introductory pricing, and family sharing.
+    We integrate them properly with server-side receipt validation so customers can't share
+    accounts trivially while still being able to use multiple devices honestly. We also add
+    proper subscription management UI (cancel, pause, change plan) — Apple now requires this
+    to be reachable from inside the app.
+  </p>
+
+  <h2>What it costs</h2>
+  <p>
+    A focused fitness app (one core feature set, subscription, basic HealthKit and wearable
+    integration) starts at £25,000 for both platforms. A full coaching marketplace with video
+    messaging, programme builder and trainer payouts runs £45,000 and up. A telemedicine app
+    is quoted per project after discovery — clinical features and compliance work add a layer
+    of complexity that depends on which jurisdictions you operate in.
+  </p>
+
+  <h2>Timeline</h2>
+  <p>
+    Focused fitness app MVP: twelve to sixteen weeks. Coaching marketplace: twenty to thirty
+    weeks. Telemedicine: scoped per project. Throughout, you'll have a working build on
+    TestFlight and Play Console internal track — we ship every fortnight.
+  </p>
+</ServiceLayout>

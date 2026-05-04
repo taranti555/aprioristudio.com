@@ -1,0 +1,60 @@
+# Apriori Studio — robots.txt
+# Allow major search engines and social link previews; block everything else.
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: Sogou web spider
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: PetalBot
+Allow: /
+
+User-agent: Yeti
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+# Block API endpoints from being indexed
+User-agent: *
+Disallow: /api/
+
+# Block everything else (incl. AI scrapers, spam bots)
+User-agent: *
+Disallow: /
+
+Sitemap: https://aprioristudio.com/sitemap-index.xml

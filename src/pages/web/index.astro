@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { WEB_SERVICES } from '../../lib/site';
+
+const title = 'Website development services';
+const description =
+  'Apriori Studio designs and builds e-commerce stores, marketing sites, and custom web applications. End-to-end: domain, hosting, design, code, launch, and support.';
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="max-w-4xl mx-auto px-5 py-10 md:py-14">
+    <Breadcrumbs items={[
+      { href: '/', label: 'Home' },
+      { href: '/web', label: 'Websites' },
+    ]} />
+
+    <header class="mb-10">
+      <h1 class="text-3xl md:text-4xl font-semibold tracking-tight leading-tight">
+        Websites that work for the people who use them
+      </h1>
+      <p class="mt-3 text-lg text-[var(--color-ink-soft)] max-w-2xl">
+        Whatever you need a website for — selling, telling a story, running a business behind
+        the scenes — we've probably built it before. Pick a category to see how we approach it.
+      </p>
+    </header>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-14">
+      {WEB_SERVICES.map((s) => (
+        <ServiceCard href={s.href} title={s.title} blurb={s.blurb} />
+      ))}
+    </div>
+
+    <div class="prose-body max-w-3xl">
+      <h2>What "end-to-end" actually means</h2>
+      <p>
+        Most agencies hand you a Figma file and walk away. Or they write code but expect you to
+        sort out hosting yourself. Or they launch the site and never tell you the SSL certificate
+        renews in ninety days. Apriori Studio is set up differently — we cover everything between
+        "I have an idea" and "the site is live and looked after."
+      </p>
+
+      <h3>Picking the right domain</h3>
+      <p>
+        We help you choose and register your domain through a registrar that won't trap you with
+        hidden renewal fees, won't sell your contact details to spammers, and gives you proper API
+        access if you ever want to automate DNS later. We set up email-related DNS records (SPF,
+        DKIM, DMARC) so messages from your domain don't end up in junk.
+      </p>
+
+      <h3>Hosting that fits</h3>
+      <p>
+        For a static marketing site, we use a small VPS or a free CDN — no point paying for
+        Kubernetes when nginx will do. For an e-commerce store, we'll match the hosting to your
+        traffic profile. For a SaaS app with a real database, we'll set up a proper server with
+        backups, monitoring, and a deploy pipeline. We'll explain why we picked what we picked,
+        and what it would cost to scale up later.
+      </p>
+
+      <h3>Design that's about your users, not our portfolio</h3>
+      <p>
+        We don't do design awards. We design for the people clicking buttons. That means clear
+        information hierarchy, fast loading on slow phones, accessible to keyboard users and screen
+        readers, and consistent across browsers. If you have brand guidelines, we follow them. If
+        you don't, we help you build a small set that's easy to maintain.
+      </p>
+
+      <h3>Code that the next developer can read</h3>
+      <p>
+        Whether we use Astro, Next.js, Laravel, or whatever else fits the job, we write code that
+        someone else could pick up six months later without crying. Sensible names, clear file
+        structure, no clever tricks. We use the boring, well-documented option over the trendy one
+        unless there's a real reason.
+      </p>
+
+      <h3>Integrations and analytics</h3>
+      <p>
+        Stripe, PayPal, MailChimp, Google Analytics, Plausible, Sentry, Cloudflare, Algolia,
+        third-party CRMs — we've integrated with most of the common services. We'll tell you which
+        of them you actually need at your stage, and which can wait until you have real users.
+      </p>
+
+      <h3>Launch and after</h3>
+      <p>
+        Going live is the start, not the finish. We monitor uptime, keep dependencies up to date,
+        renew certificates automatically, and back up data regularly. If something breaks on a
+        Saturday, you have a person to call — not a ticketing portal.
+      </p>
+
+      <h2>How a project usually goes</h2>
+      <p>
+        We start with a short conversation — sometimes a thirty-minute call is enough — to figure
+        out what you need and whether we're the right people for it. If it's a fit, we send a
+        written quote with a fixed scope, fixed price, and a realistic timeline. If we're not the
+        right fit, we'll say so, and where possible we'll suggest someone who is.
+      </p>
+      <p>
+        Once we start, we share progress in writing every few days. You see the work as it goes,
+        not just at a final reveal. If something needs changing, we change it without drama. We
+        ship to a staging URL early so you can click through it on your own phone in real
+        conditions.
+      </p>
+
+      <h2>Pricing, in plain numbers</h2>
+      <p>
+        A small marketing site (5-8 pages, no e-commerce) typically lands between £2,500 and
+        £6,000, depending on how much custom design and copywriting you need. An e-commerce store
+        starts around £5,000 and goes up with the catalogue size and integrations. A SaaS or web
+        app is quoted per project — there's no honest one-size-fits-all number for those. Hosting
+        and domain run separately and we'll set them up in your name, on your accounts, so nothing
+        is locked to us.
+      </p>
+    </div>
+  </article>
+</BaseLayout>

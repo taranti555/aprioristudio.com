@@ -1,0 +1,49 @@
+---
+import { NAV, SITE } from '../lib/site';
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+<header class="border-b border-[var(--color-border)] bg-white/80 backdrop-blur sticky top-0 z-30">
+  <div class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2.5 group" aria-label={SITE.name}>
+      <svg width="28" height="28" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#0F172A"/>
+        <path d="M20 48 L32 16 L44 48" stroke="#FAFAFA" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <path d="M25 36 H39" stroke="#2563EB" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+      <span class="font-semibold text-[var(--color-ink)] tracking-tight group-hover:text-[var(--color-accent)] transition-colors">
+        Apriori Studio
+      </span>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-7 text-sm">
+      {NAV.map((item) => {
+        const active = path === item.href || path.startsWith(item.href + '/');
+        return (
+          <a
+            href={item.href}
+            class={`hover:text-[var(--color-accent)] transition-colors ${active ? 'text-[var(--color-accent)] font-medium' : 'text-[var(--color-ink-soft)]'}`}
+          >
+            {item.label}
+          </a>
+        );
+      })}
+      <a href="/contact" class="btn-primary !py-2 !px-4 text-sm">Get in touch</a>
+    </nav>
+
+    <details class="md:hidden relative">
+      <summary class="list-none cursor-pointer p-2 -mr-2" aria-label="Open menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </summary>
+      <div class="absolute right-0 top-full mt-2 w-56 bg-white border border-[var(--color-border)] rounded-lg shadow-lg py-2">
+        {NAV.map((item) => (
+          <a href={item.href} class="block px-4 py-2 text-sm hover:bg-[var(--color-bg)]">{item.label}</a>
+        ))}
+        <a href="/contact" class="block px-4 py-2 text-sm text-[var(--color-accent)] font-medium border-t border-[var(--color-border)] mt-1">Get in touch →</a>
+      </div>
+    </details>
+  </div>
+</header>

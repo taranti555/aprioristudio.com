@@ -1,0 +1,142 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { APP_SERVICES } from '../../lib/site';
+
+const title = 'Mobile app development for iOS and Android';
+const description =
+  'Apriori Studio designs, builds and ships native iPhone and Android apps. Marketplaces, on-demand services, booking and fitness — end-to-end, from idea to App Store and Google Play.';
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="max-w-4xl mx-auto px-5 py-10 md:py-14">
+    <Breadcrumbs items={[
+      { href: '/', label: 'Home' },
+      { href: '/apps', label: 'Mobile apps' },
+    ]} />
+
+    <header class="mb-10">
+      <h1 class="text-3xl md:text-4xl font-semibold tracking-tight leading-tight">
+        Native mobile apps, designed and shipped
+      </h1>
+      <p class="mt-3 text-lg text-[var(--color-ink-soft)] max-w-2xl">
+        We build apps for iPhone and Android — fully native where it matters, cross-platform
+        where it makes sense — and handle the parts most studios won't touch: store submission,
+        privacy declarations, push notifications, and ongoing updates after launch.
+      </p>
+    </header>
+
+    <div class="grid sm:grid-cols-2 gap-5 mb-14">
+      {APP_SERVICES.map((s) => (
+        <ServiceCard href={s.href} title={s.title} blurb={s.blurb} />
+      ))}
+    </div>
+
+    <div class="prose-body max-w-3xl">
+      <h2>How we build mobile apps</h2>
+      <p>
+        Mobile is harder than web in ways most clients don't realise until they've shipped one.
+        Two stores with two review processes, each with their own rules. A device fleet
+        spanning ten years of hardware. App lifecycles where users keep the app installed but
+        don't open it for months. Privacy frameworks that shift every iOS release. We handle
+        all of this so you can focus on the product.
+      </p>
+
+      <h3>Native, cross-platform, or hybrid?</h3>
+      <p>
+        For apps that need full access to platform features (background location, complex
+        gestures, AR, advanced camera) and where performance matters, we build native — Swift
+        for iOS, Kotlin for Android. For most business apps where the UI is fairly standard
+        and the value is in the features, we use <strong>React Native</strong> or
+        <strong>Flutter</strong>: one codebase, both platforms, faster to build, easier to
+        keep in sync. We'll explain the trade-off honestly for your specific app — neither
+        approach is "better," they're just suited to different jobs.
+      </p>
+
+      <h3>Design that respects each platform</h3>
+      <p>
+        iOS users expect iOS conventions; Android users expect Material Design; copying one
+        platform's patterns onto the other makes both apps feel slightly off. We design with
+        each platform's idioms in mind, even when sharing a codebase. Tab bars vs. bottom
+        navigation. Back-button behaviour. System fonts. Native pickers and sheets. The result
+        is two apps that feel right on each platform without doubling the design work.
+      </p>
+
+      <h3>Authentication and accounts</h3>
+      <p>
+        Sign-in with Apple (required for iOS apps that offer third-party login). Sign-in with
+        Google. Email and password where appropriate. Magic-link login. Phone number with SMS
+        verification. Biometric unlock (Face ID, Touch ID, Android biometric). All wired up to
+        a secure backend that handles tokens properly.
+      </p>
+
+      <h3>Push notifications, done right</h3>
+      <p>
+        Push isn't just a technical integration — it's a design discipline. Done badly, users
+        disable notifications within a week and never re-enable them. We help you decide what
+        actually deserves a notification, build the backend to send them reliably, handle the
+        permission prompt at the right moment in the user journey, and give users granular
+        controls over what they get. Apple Push Notification service for iOS, Firebase Cloud
+        Messaging for Android.
+      </p>
+
+      <h3>Payments and subscriptions</h3>
+      <p>
+        For physical goods or services, Stripe inside the app works fine. For digital goods,
+        Apple and Google require their own in-app purchase systems and take 15-30%. We
+        integrate StoreKit on iOS and Google Play Billing on Android, including subscription
+        management, restoration of purchases on a new device, and grace periods for billing
+        issues. We'll explain the rules so you don't get rejected at review.
+      </p>
+
+      <h3>Backend and APIs</h3>
+      <p>
+        Apps need a server. We build it alongside the apps so the API and the client move
+        together — no waiting on a separate team, no integration mismatches. Authentication,
+        data sync, push delivery, file uploads (with proper handling of large videos),
+        background jobs. Hosted on a VPS or managed service depending on scale, with proper
+        monitoring.
+      </p>
+
+      <h3>App Store and Google Play submission</h3>
+      <p>
+        This is where projects often stall. Apple's review process can reject you for
+        privacy-policy text, for missing in-app purchase handling, for the wrong icon size,
+        for using an undocumented API. Google's policy team rejects for permissions you
+        request without justification, for content rating mismatches, for ad SDKs they
+        consider deceptive. We've been through both review processes many times and prepare
+        the submission accordingly. We can submit under your developer accounts (so you keep
+        ownership) or help you set up the accounts if you don't have them.
+      </p>
+
+      <h3>Privacy, App Tracking Transparency, and the data parts</h3>
+      <p>
+        iOS App Store Privacy "nutrition labels," ATT prompts for tracking, Google Play data
+        safety form, Privacy Manifest files (PrivacyInfo.xcprivacy) — every store wants slightly
+        different declarations of what data you collect and why. We fill them out accurately
+        and conservatively, and audit your third-party SDKs (analytics, ads, crash reporting)
+        for what they actually transmit. If you operate in the UK or EU, GDPR compliance is
+        baked in.
+      </p>
+
+      <h2>What it costs</h2>
+      <p>
+        A simple cross-platform app (single feature set, basic backend, both stores) typically
+        starts at £15,000 and runs to £35,000 depending on the depth of features. A complex
+        app with multiple user roles, real-time features, and platform-specific work is quoted
+        per-project, usually £35,000 and up. Apple Developer account is £79/year, Google Play
+        Console is a one-time $25, and any third-party services (push providers, analytics,
+        backend hosting) are billed to you directly.
+      </p>
+
+      <h2>Timeline</h2>
+      <p>
+        First version (MVP) on both stores typically takes ten to sixteen weeks from kickoff,
+        depending on complexity and how quickly we can get through Apple's first review (which
+        can take a day or two weeks, unpredictable). Beyond v1, app updates run on whatever
+        cadence makes sense — most clients ship monthly or every two months.
+      </p>
+    </div>
+  </article>
+</BaseLayout>

@@ -1,0 +1,136 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+
+const title = 'On-demand service app development';
+const description =
+  'Delivery, taxi, courier and on-demand professional services apps. Real-time location, dispatch logic, in-app payments, ratings and trip history — designed and shipped by Apriori Studio.';
+---
+
+<ServiceLayout
+  title={title}
+  description={description}
+  serviceType="On-demand service mobile app development"
+  breadcrumbs={[
+    { href: '/', label: 'Home' },
+    { href: '/apps', label: 'Mobile apps' },
+    { href: '/apps/on-demand', label: 'On-demand services' },
+  ]}
+>
+  <p>
+    On-demand apps — taxi, food delivery, parcel courier, on-the-spot professional services —
+    look simple from the outside (request a thing, get a thing) and are quietly some of the
+    most engineering-heavy apps in any category. They have to handle real-time location,
+    matching algorithms, dispatch logic, payments, ratings, trip histories, support flows, and
+    edge cases that only show up when something goes wrong with a delivery in the rain on a
+    Saturday night. We build them with that complexity in mind from day one.
+  </p>
+
+  <h2>What we build</h2>
+  <p>
+    Food and grocery delivery (restaurant or store discovery, ordering, real-time tracking,
+    rider dispatch). Ride-hailing apps (passenger and driver, route preview, fare estimation,
+    real-time location share). Courier apps for documents and parcels (sender app + courier
+    app + tracking page). Professional service marketplaces (cleaners, handymen, beauty,
+    tutoring) with bookings, geofenced availability, and provider profiles. Field-service
+    dispatch tools for B2B (engineers in the field, a back-office dashboard).
+  </p>
+
+  <h2>The hard parts (which we handle)</h2>
+
+  <h3>Real-time location, done battery-efficiently</h3>
+  <p>
+    The biggest mistake in on-demand apps is constant high-accuracy GPS — it kills the battery
+    and gets your app uninstalled. We use the right location accuracy for each part of the
+    journey (low-power background tracking when the rider is on the way, high-accuracy when
+    they're approaching). We respect the platform's background location rules (iOS is strict,
+    Android even stricter as of recent versions), so the app keeps working when minimised
+    without breaching policy.
+  </p>
+
+  <h3>Matching, dispatch and ETAs</h3>
+  <p>
+    The "find me the nearest available driver" logic looks easy and isn't. It needs to weigh
+    distance, current load, vehicle type, customer rating, surge pricing, fairness across
+    drivers, and constraints from the operator (geofences, exclusion zones, service areas). We
+    build dispatch logic that's transparent and tunable — you can change the rules without
+    rewriting code. ETA calculation uses a routing engine (Mapbox, Google Maps, OSRM) with
+    real-time traffic.
+  </p>
+
+  <h3>Two apps (or three) sharing one backend</h3>
+  <p>
+    On-demand apps almost always come in pairs — customer + provider — and often a third
+    operator or admin web dashboard. We design the data model and APIs once, share business
+    logic, and build distinct UI for each role. Provider apps need different priorities: big
+    buttons usable while moving, voice prompts, offline queue for actions taken in low-signal
+    areas.
+  </p>
+
+  <h3>Payments, payouts and surge</h3>
+  <p>
+    Stripe Connect for split payments — customer pays, platform takes its cut, provider gets
+    paid out on a schedule. Saved cards with one-tap reuse. Apple Pay and Google Pay for new
+    customers. Cash payment option (still essential in some markets). Surge pricing where
+    appropriate, with clear UX so customers see it before confirming. Tipping flow that
+    actually gets used (defaults matter). Receipts emailed automatically.
+  </p>
+
+  <h3>Maps and routing</h3>
+  <p>
+    We use Google Maps SDK or Mapbox depending on cost (Google's pricing scales harshly past a
+    threshold, Mapbox is cheaper at scale but has fewer features in some regions). For the
+    routing engine itself: Google Directions, Mapbox Directions, or self-hosted OSRM if you're
+    operating at a scale where API costs become a concern. We build the map screens to
+    re-render efficiently on lower-end Android devices.
+  </p>
+
+  <h3>Push, in-app messaging and support</h3>
+  <p>
+    Push for status updates ("driver on the way," "arriving in two minutes," "delivered").
+    In-app chat between customer and provider that auto-disables after the trip ends, with
+    masked phone numbers if anonymous calling is needed (Twilio Proxy or similar). Support
+    chat for issues, with proper ticketing on the back end so nothing gets lost.
+  </p>
+
+  <h3>Cancellations, refunds and dispute resolution</h3>
+  <p>
+    Cancellation policies that vary by stage of the trip. Automatic refunds where appropriate.
+    Manual review queues for escalations. Photo-evidence flows for disputed deliveries. We
+    build the operator dashboard with the queries you'll actually need, not generic "view all
+    trips" lists.
+  </p>
+
+  <h3>Ratings, reviews and quality control</h3>
+  <p>
+    Two-way ratings (customer rates provider, provider rates customer). Automated quality
+    flags for low-rated providers. Review moderation queue. Public-facing rating display done
+    in a way that's fair to providers (recent ratings weighted, single bad reviews
+    contextualised).
+  </p>
+
+  <h2>Compliance</h2>
+  <p>
+    On-demand apps touch a lot of regulation: data protection (GDPR for UK/EU operations),
+    payment regulations (PSD2, Strong Customer Authentication), tax (VAT on commission), and
+    sector-specific rules (food safety for delivery, taxi licensing for ride-hailing, gig-work
+    employment status for providers). We don't give legal advice but we build the technical
+    parts that compliance requires — audit logs, data export and deletion, age verification
+    where applicable, identity verification (Stripe Identity or Onfido) for providers.
+  </p>
+
+  <h2>What it costs</h2>
+  <p>
+    A two-app on-demand MVP (customer + provider, basic dispatch, Stripe payments, push) starts
+    at £45,000. A full operating platform with operator dashboard, surge pricing, multi-region
+    support, and integrated identity verification runs £80,000 and up. Map and SMS service
+    costs are usage-based and billed to you directly. Apple Developer and Google Play
+    accounts are required (we can submit under yours).
+  </p>
+
+  <h2>Timeline</h2>
+  <p>
+    MVP for a single region with one service type: sixteen to twenty-four weeks. Multi-region,
+    multi-service-type platforms take longer and benefit from a phased rollout (one region at
+    a time). We share working builds every two weeks via TestFlight and Play Console.
+  </p>
+</ServiceLayout>

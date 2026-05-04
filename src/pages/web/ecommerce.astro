@@ -1,0 +1,130 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+
+const title = 'E-commerce website development';
+const description =
+  'Online stores that convert. Apriori Studio builds Shopify, WooCommerce, and fully custom storefronts — with payments, inventory, and fast checkout that works on every device.';
+---
+
+<ServiceLayout
+  title={title}
+  description={description}
+  serviceType="E-commerce website development"
+  breadcrumbs={[
+    { href: '/', label: 'Home' },
+    { href: '/web', label: 'Websites' },
+    { href: '/web/ecommerce', label: 'E-commerce stores' },
+  ]}
+>
+  <p>
+    Selling online is a category of website where small details add up to big revenue swings.
+    A checkout that takes one extra step. A product image that loads slowly on mobile. An email
+    receipt that ends up in spam. A search box that misses obvious matches. Each of these,
+    individually, costs you a few percent of sales — and they compound. We build e-commerce sites
+    with that compounding effect in mind, so the small things are right by default.
+  </p>
+
+  <h2>What we build</h2>
+  <p>
+    Most stores fit one of three shapes, and we work in all of them. For under a few hundred
+    products with standard payment and shipping needs, <strong>Shopify</strong> is usually the
+    right call — fast to launch, low maintenance, well-supported. For more flexibility on
+    integrations and a lower long-term running cost, <strong>WooCommerce</strong> on a VPS is
+    a strong fit. For unusual product models (subscriptions with custom pricing logic, B2B
+    quotation flows, marketplaces with multiple sellers), a <strong>custom storefront</strong>
+    with a headless commerce backend gives you the room to do things off the shelf can't.
+  </p>
+  <p>
+    We won't push you into a custom build if Shopify will do. We won't push you into Shopify if
+    your business model needs a custom build. We'll tell you the trade-offs of each, including
+    what they cost to run year-on-year.
+  </p>
+
+  <h2>End-to-end, not just code</h2>
+
+  <h3>Domain and email setup</h3>
+  <p>
+    We register your domain through a registrar that gives you proper control (and won't trap
+    you with renewal price hikes). We configure email-related DNS records — SPF, DKIM, DMARC —
+    so order confirmations and shipping updates don't land in junk folders, which kills more
+    repeat business than people realise.
+  </p>
+
+  <h3>Hosting that scales with you</h3>
+  <p>
+    For a Shopify store you don't think about hosting — that's part of the appeal. For
+    WooCommerce or custom stores, we pick a VPS or managed host that fits your traffic profile,
+    with caching (Redis, Varnish, or CDN-level) so the storefront stays fast even during a
+    promotion. We set up automated backups, SSL renewal, and monitoring so you find out about
+    issues before customers do.
+  </p>
+
+  <h3>Design and storefront UX</h3>
+  <p>
+    We design for one purpose: helping a visitor become a buyer without friction. That means
+    fast-loading product pages with images that don't jump as they load, clear pricing and
+    delivery info above the fold, a one-page checkout with guest option, mobile-first everything.
+    We test on real phones, not just Chrome dev tools.
+  </p>
+
+  <h3>Payments and integrations</h3>
+  <p>
+    Stripe, PayPal, Apple Pay, Google Pay, Klarna for buy-now-pay-later, GoCardless for
+    direct debit. Shipping integrations (Royal Mail, DPD, Evri, ShipStation, Sendcloud).
+    Accounting (Xero, QuickBooks, FreshBooks). Email marketing (Klaviyo, MailChimp,
+    SendGrid). Reviews (Trustpilot, Yotpo, Judge.me). Analytics (Google Analytics 4,
+    Plausible, Fathom). We've connected most of these before — and we'll only set up the
+    ones you actually need at your stage.
+  </p>
+
+  <h3>Search, filters, and recommendations</h3>
+  <p>
+    On a small catalogue, the built-in search is usually fine. Past a few hundred SKUs, native
+    search starts missing things and customers leave. We add proper search (Algolia, Meilisearch,
+    or Manticore depending on budget) with synonyms, typo tolerance, and faceted filtering.
+    Cross-sell and upsell modules where they make sense, not where they annoy.
+  </p>
+
+  <h3>Inventory, orders, and admin</h3>
+  <p>
+    Whether your stock lives in Shopify, WooCommerce, or a separate ERP, we wire it up so your
+    storefront shows accurate availability and your order flow updates the right systems.
+    For multi-channel sellers (your store + Amazon + eBay + a physical till), we'll set up
+    inventory sync so you don't oversell.
+  </p>
+
+  <h3>Tax, GDPR, and compliance</h3>
+  <p>
+    UK VAT, EU OSS thresholds, US sales tax via TaxJar or Avalara — we configure the right
+    setup for where you sell. Cookie consent banner that actually meets the GDPR requirement
+    (not just a "got it" button). Privacy policy and terms of service templates we'll tailor to
+    your business.
+  </p>
+
+  <h2>What it costs</h2>
+  <p>
+    A small Shopify store with standard payment, shipping and design (under 100 products, no
+    custom integrations) typically lands at £4,000 to £8,000, including theme customisation and
+    copywriting support. A WooCommerce store of similar scope is roughly the same range. A
+    custom-built storefront for an unusual business model starts at £10,000 and is quoted
+    per-project. Hosting, payment processor fees, and any third-party SaaS subscriptions are
+    yours to pay directly — we don't mark those up.
+  </p>
+
+  <h2>How long it takes</h2>
+  <p>
+    Most small-to-medium e-commerce builds take six to ten weeks from kickoff to launch,
+    assuming you have product photos, copy, and brand assets ready (or know what you want from
+    them). Larger custom builds run twelve to twenty weeks. We share a written timeline with
+    each project so you know what's happening when.
+  </p>
+
+  <h2>After launch</h2>
+  <p>
+    Going live is the start. We monitor uptime, keep your platform and plugins up to date,
+    apply security patches, and back up your store on a schedule. If you hit a sales spike,
+    we scale your hosting before it falls over. If you want a new feature in three months, we
+    quote it and ship it. If you want to take everything in-house, we hand it over cleanly with
+    documentation — there's no lock-in.
+  </p>
+</ServiceLayout>

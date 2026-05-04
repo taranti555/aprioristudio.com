@@ -1,0 +1,144 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+
+const title = 'Marketplace &amp; e-commerce app development';
+const description =
+  'Native iOS and Android apps for marketplaces and online retail. Buyer + seller flows, payments, listings, search, push, and store submission — end-to-end by Apriori Studio.';
+---
+
+<ServiceLayout
+  title={title}
+  description={description}
+  serviceType="Marketplace mobile app development"
+  breadcrumbs={[
+    { href: '/', label: 'Home' },
+    { href: '/apps', label: 'Mobile apps' },
+    { href: '/apps/marketplace', label: 'Marketplace &amp; e-commerce apps' },
+  ]}
+>
+  <p>
+    Marketplace and shopping apps are some of the most-used categories on every phone — and
+    also some of the hardest to get right. They live or die by the quality of small details:
+    how fast a product image loads on a slow connection, how few taps it takes to buy
+    something seen yesterday, how clearly notifications surface a sale without becoming spam.
+    We build marketplace apps with those small things treated as the main thing.
+  </p>
+
+  <h2>What we build</h2>
+  <p>
+    Branded retail apps for an existing online store (so your customers can re-order with one
+    tap and get push notifications about restocks). Vertical marketplaces (handmade, vintage,
+    refurbished electronics, niche gear). Two-sided platforms with separate buyer and seller
+    apps. Live-shopping experiences with video and chat. Subscription-box style
+    "discover-then-buy" apps. The patterns differ by category, but the underlying engineering
+    challenges are similar.
+  </p>
+
+  <h2>End-to-end work</h2>
+
+  <h3>Discovery and information architecture</h3>
+  <p>
+    We start by mapping the journeys: how a buyer discovers something, considers it, buys it,
+    receives it, returns it. For two-sided apps we map the seller's journey too: listing,
+    pricing, fulfilment, payouts, support. The information architecture follows from those
+    journeys — categories, filters, search, recommendations, account areas. We avoid copying
+    Amazon's structure unless that's actually what your customers expect.
+  </p>
+
+  <h3>Native or cross-platform?</h3>
+  <p>
+    For most retail apps, <strong>React Native</strong> with shared business logic and
+    platform-specific UI flourishes is the right balance. For apps with heavy media (live
+    video, AR try-on, virtual rooms) we go fully native with Swift and Kotlin. Either way the
+    backend is shared and the apps share a single design system rather than diverging.
+  </p>
+
+  <h3>Catalogue, search and filters</h3>
+  <p>
+    A small catalogue (under a few hundred SKUs) can use the backend's built-in search. Past
+    that, we plug in proper search (Algolia, Meilisearch, Manticore) with typo tolerance,
+    synonyms, faceted filtering, and instant results as the user types. We add infinite scroll
+    that doesn't memory-leak, image placeholders so layouts don't jump, and offline caching of
+    recently viewed items so the app stays useful on a poor connection.
+  </p>
+
+  <h3>Product detail pages that convert</h3>
+  <p>
+    Image gallery with pinch-to-zoom and lazy loading. Variants (size, colour, configuration)
+    that update price and availability in real time. Reviews and ratings. Cross-sell modules
+    where they make sense. Sticky add-to-cart on long pages. Apple Pay and Google Pay buttons
+    that work in one tap. Stock and shipping info above the fold. Shareable deep links so a
+    user can send a product to a friend and have it open in the app, not the browser.
+  </p>
+
+  <h3>Cart, checkout and payments</h3>
+  <p>
+    A persistent cart that survives app close. Checkout in as few steps as possible —
+    sometimes a single page, sometimes split if it improves trust. Apple Pay and Google Pay
+    front and centre (one-tap purchase from a saved card). Stripe for card payments, with 3D
+    Secure handled correctly. Klarna or Clearpay for buy-now-pay-later. Address autocomplete
+    (Google Places or Loqate) so a returning customer doesn't have to type. Tax calculation
+    based on shipping address and product type.
+  </p>
+
+  <h3>Two-sided marketplaces</h3>
+  <p>
+    For platforms with sellers as well as buyers, we build either two separate apps or a
+    single app with a seller-mode toggle. Listing flow with image upload (with on-device
+    compression and a fallback to upload via Wi-Fi if connection is poor). Inventory and
+    order management. Stripe Connect for split payments and seller payouts. Messaging between
+    buyers and sellers with typing indicators and offline queueing. Dispute resolution flows
+    that don't require us to write a custom support panel from scratch.
+  </p>
+
+  <h3>Push notifications</h3>
+  <p>
+    Order updates (placed, shipped, delivered). Price drops on saved items. Restock alerts.
+    Personalised picks at a sensible cadence (not three a day). Cart abandonment if the user
+    opted in. Each category goes through the right notification permission group so users can
+    turn off "marketing" without losing "order updates." We design these as a system, not as
+    one-off broadcasts.
+  </p>
+
+  <h3>Account, orders and re-engagement</h3>
+  <p>
+    Order history with reorder buttons. Saved addresses and payment methods. Returns initiated
+    in-app. Wishlists. Loyalty points or rewards if you have them. Sign-in with Apple, Google,
+    or email — required by Apple if you offer any third-party login. Account deletion in-app
+    (Apple now requires this for any app that lets you create an account).
+  </p>
+
+  <h3>Analytics and growth</h3>
+  <p>
+    Conversion funnel tracking from view → add-to-cart → checkout → purchase, segmented by
+    source. Cohort retention. Re-engagement campaigns triggered by inactivity. App Store and
+    Play Store optimisation (keywords, screenshots, video preview). We integrate the analytics
+    you'll actually use, not all of them — too many SDKs slow the app and confuse the data.
+  </p>
+
+  <h3>App Store and Google Play submission</h3>
+  <p>
+    Marketplace apps draw extra scrutiny from Apple's reviewers (commerce policy, in-app
+    purchase rules, refund handling, age ratings if you sell anything age-restricted). We
+    prepare the submission with the right metadata, privacy declarations, and screenshots,
+    and we respond to reviewer questions in your name. Google Play's process is more
+    automated but trips on permissions and policy items — we handle those too.
+  </p>
+
+  <h2>What it costs</h2>
+  <p>
+    A branded retail app for an existing store (catalogue sync, account, cart, checkout, push)
+    typically lands at £20,000 to £35,000 for both platforms. A two-sided marketplace with
+    seller apps and Stripe Connect starts around £40,000 and is quoted per project. Backend
+    hosting, payment processor fees, and any SaaS subscriptions (push, analytics, search) are
+    billed to you directly.
+  </p>
+
+  <h2>Timeline</h2>
+  <p>
+    A retail app first version typically ships in twelve to sixteen weeks. A two-sided
+    marketplace MVP is twenty to twenty-eight weeks, depending on the scope of seller tools.
+    Either way, we ship to TestFlight and Play Console internal track every fortnight so you
+    can use the app on your own phone throughout.
+  </p>
+</ServiceLayout>

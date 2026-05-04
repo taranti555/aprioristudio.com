@@ -1,0 +1,141 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+
+const title = 'SaaS &amp; web application development';
+const description =
+  'Custom dashboards, B2B tools, internal portals, and full SaaS products. Apriori Studio builds web applications with authentication, billing, integrations, and a deploy pipeline you can trust.';
+---
+
+<ServiceLayout
+  title={title}
+  description={description}
+  serviceType="SaaS and web application development"
+  breadcrumbs={[
+    { href: '/', label: 'Home' },
+    { href: '/web', label: 'Websites' },
+    { href: '/web/saas', label: 'SaaS &amp; web apps' },
+  ]}
+>
+  <p>
+    Web applications are different from marketing sites in almost every way that matters.
+    Marketing sites are read mostly once, cached aggressively, and serve millions if needed.
+    Web apps are read and written constantly by a smaller group of users who care about every
+    detail of how the thing behaves at three in the morning when something breaks. Building one
+    well takes a different mindset, different tools, and a different kind of attention to
+    long-term maintenance. We have all three.
+  </p>
+
+  <h2>What counts as a web app</h2>
+  <p>
+    The line is fuzzy, but if your project includes any of the following, it's an app, not a
+    site: user accounts, recurring billing, role-based permissions, multi-tenant data, real-time
+    updates, complex forms, integrations with external APIs that need authentication, document
+    or file processing, scheduled background jobs, an admin panel, or anything you'd describe as
+    "the dashboard." Examples we've worked on: B2B dashboards for ops teams, internal tools that
+    replaced a spreadsheet that grew out of control, customer portals, project management apps
+    for a specific niche, marketplace platforms.
+  </p>
+
+  <h2>Tech stack we use</h2>
+  <p>
+    For most apps we work in <strong>Next.js</strong> or <strong>React</strong> on the
+    frontend, with <strong>Laravel</strong>, <strong>Node.js</strong>, or
+    <strong>FastAPI</strong> on the backend depending on what you and your team will be most
+    comfortable maintaining. Database is usually <strong>PostgreSQL</strong> or
+    <strong>MySQL</strong>. Background jobs run on <strong>Redis</strong>-backed queues.
+    Real-time features use WebSockets. Hosting goes on a proper VPS or managed Kubernetes
+    depending on scale, with Cloudflare in front for caching and DDoS protection.
+  </p>
+  <p>
+    We don't chase trends. We pick boring, well-documented tools that you'll be able to hire
+    for and that will still be supported in five years. If you have an existing team or
+    preferred stack, we'll adapt — we've worked across most of the popular Web frameworks.
+  </p>
+
+  <h2>Engineering practices</h2>
+
+  <h3>Authentication and access control</h3>
+  <p>
+    Email + password with proper hashing (Argon2id), email verification, password reset, and
+    optional two-factor (TOTP via Authenticator app, or WebAuthn for passwordless). Single
+    sign-on (Google, Microsoft, GitHub) where it fits. Role-based access control with policies
+    you can audit. Session handling that survives a server restart. Rate-limiting on
+    authentication endpoints to stop credential-stuffing attacks before they start.
+  </p>
+
+  <h3>Billing and subscriptions</h3>
+  <p>
+    Stripe Billing for most cases — recurring subscriptions, metered usage, prorated upgrades,
+    failed-payment dunning, invoicing, tax via Stripe Tax. We integrate the webhooks properly
+    so your app knows immediately when a customer cancels or fails a payment, not at the next
+    cron run. For UK and EU VAT compliance we set up MOSS / OSS handling correctly.
+  </p>
+
+  <h3>Multi-tenancy and data isolation</h3>
+  <p>
+    If your app serves multiple customers (organisations, teams, workspaces), we structure the
+    database so one tenant can't accidentally see another's data — using row-level security,
+    schema-per-tenant, or database-per-tenant depending on the scale and isolation requirements.
+    We add the right indexes and audit logs from the start, not after a security review goes
+    sideways.
+  </p>
+
+  <h3>Deployment, monitoring and backups</h3>
+  <p>
+    Continuous deployment from your Git repository. Zero-downtime releases. Database migrations
+    that run safely. Application monitoring (Sentry for errors, a metrics dashboard for what
+    matters to your business), uptime checks with alerts to a real human. Daily off-site backups
+    of the database, with periodic restore tests so you know they actually work.
+  </p>
+
+  <h3>Security and compliance</h3>
+  <p>
+    HTTPS-only with HSTS, CSRF and XSS protection at the framework level, parameterised
+    queries everywhere, secrets in environment variables (never in code), regular dependency
+    updates with security patches, password policies that follow current NIST guidance (length
+    over arbitrary complexity rules). For regulated industries we can implement audit logs,
+    data residency controls, and the documentation needed for SOC 2 or ISO 27001 prep.
+  </p>
+
+  <h3>API and integrations</h3>
+  <p>
+    REST or GraphQL — both fine, both have trade-offs, we'll pick the one that fits your use
+    case. OpenAPI documentation generated from the code, so it stays current. Webhooks out for
+    your customers to integrate with. OAuth 2.0 server if you need third-party developers to
+    build on top of your app.
+  </p>
+
+  <h2>How we approach a SaaS project</h2>
+  <p>
+    Web apps are higher-stakes builds than marketing sites, so we start with a discovery phase
+    — usually one to two weeks of working sessions, technical research, and a written brief that
+    captures what we're building, what we're explicitly not building, the data model, the user
+    journeys, the third-party services involved, and the success metrics. That brief becomes
+    the contract. Changes happen in writing.
+  </p>
+  <p>
+    From there we ship a thin slice end-to-end first — usually authentication, one core page,
+    one core action — so you can use it before we go deep on features. Every fortnight there's
+    a working build on staging, and we course-correct based on what you actually use rather
+    than what was speculated about in the brief.
+  </p>
+
+  <h2>Pricing</h2>
+  <p>
+    Web apps are quoted per-project after discovery — there's no honest single-line price.
+    Discovery itself is fixed-price, usually £1,500 to £3,000 for a one-week sprint. A
+    minimum-viable SaaS product (auth, billing, two or three core features, basic admin) starts
+    around £20,000 and goes up depending on integrations and complexity. Internal tools that
+    replace a spreadsheet typically come in at £8,000 to £18,000. We'll write all of this
+    clearly in the proposal, and the proposal is free.
+  </p>
+
+  <h2>After launch</h2>
+  <p>
+    Web apps are never finished — they evolve as your business does. We offer ongoing
+    development on a retainer (a fixed number of hours per month) or per-project for specific
+    features. Either way, you have one developer who knows the codebase, not a different
+    person every quarter. If you'd rather hire your own team and take it in-house, we'll hand
+    over with documentation and pair-programming sessions to get them up to speed.
+  </p>
+</ServiceLayout>

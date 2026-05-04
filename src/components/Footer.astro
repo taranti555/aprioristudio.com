@@ -1,0 +1,62 @@
+---
+import { SITE, WEB_SERVICES, APP_SERVICES } from '../lib/site';
+const year = new Date().getFullYear();
+---
+<footer class="border-t border-[var(--color-border)] bg-white mt-24">
+  <div class="max-w-6xl mx-auto px-5 py-12 grid md:grid-cols-4 gap-8 text-sm">
+    <div>
+      <div class="flex items-center gap-2 mb-3">
+        <svg width="22" height="22" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#0F172A"/>
+          <path d="M20 48 L32 16 L44 48" stroke="#FAFAFA" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M25 36 H39" stroke="#2563EB" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <span class="font-semibold text-[var(--color-ink)]">{SITE.name}</span>
+      </div>
+      <p class="text-[var(--color-ink-soft)] leading-relaxed">
+        {SITE.tagline}
+      </p>
+      <p class="text-[var(--color-ink-soft)] mt-3 text-xs">
+        {SITE.legalName} · London, UK
+      </p>
+    </div>
+
+    <div>
+      <h4 class="font-semibold mb-3 text-[var(--color-ink)]">Websites</h4>
+      <ul class="space-y-2">
+        <li><a href="/web" class="text-[var(--color-ink-soft)] hover:text-[var(--color-accent)]">All web services</a></li>
+        {WEB_SERVICES.map((s) => (
+          <li><a href={s.href} class="text-[var(--color-ink-soft)] hover:text-[var(--color-accent)]">{s.title}</a></li>
+        ))}
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="font-semibold mb-3 text-[var(--color-ink)]">Mobile apps</h4>
+      <ul class="space-y-2">
+        <li><a href="/apps" class="text-[var(--color-ink-soft)] hover:text-[var(--color-accent)]">All app services</a></li>
+        {APP_SERVICES.map((s) => (
+          <li><a href={s.href} class="text-[var(--color-ink-soft)] hover:text-[var(--color-accent)]">{s.title}</a></li>
+        ))}
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="font-semibold mb-3 text-[var(--color-ink)]">Studio</h4>
+      <ul class="space-y-2">
+        <li><a href="/about" class="text-[var(--color-ink-soft)] hover:text-[var(--color-accent)]">About us</a></li>
+        <li><a href="/contact" class="text-[var(--color-ink-soft)] hover:text-[var(--color-accent)]">Contact</a></li>
+        <li><a href="/privacy" class="text-[var(--color-ink-soft)] hover:text-[var(--color-accent)]">Privacy policy</a></li>
+        <li><a href="/terms" class="text-[var(--color-ink-soft)] hover:text-[var(--color-accent)]">Terms of use</a></li>
+        <li class="pt-2"><a href={`mailto:${SITE.email.contact}`} class="text-[var(--color-ink-soft)] hover:text-[var(--color-accent)]">{SITE.email.contact}</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-[var(--color-border)]">
+    <div class="max-w-6xl mx-auto px-5 py-5 text-xs text-[var(--color-ink-soft)] flex flex-col md:flex-row gap-2 justify-between">
+      <span>© {year} {SITE.legalName}. All rights reserved.</span>
+      <span>Built end-to-end by {SITE.name}.</span>
+    </div>
+  </div>
+</footer>

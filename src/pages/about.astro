@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+const title = 'About Apriori Studio';
+const description =
+  'Apriori Studio is a small UK software studio building modern websites and mobile apps end-to-end. Honest pricing, plain English, and a senior team.';
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="max-w-3xl mx-auto px-5 py-10 md:py-14">
+    <Breadcrumbs items={[
+      { href: '/', label: 'Home' },
+      { href: '/about', label: 'About' },
+    ]} />
+
+    <header class="mb-8">
+      <h1 class="text-3xl md:text-4xl font-semibold tracking-tight leading-tight">
+        About Apriori Studio
+      </h1>
+      <p class="mt-3 text-lg text-[var(--color-ink-soft)]">
+        A small UK studio building modern websites and mobile apps. We're picky about which
+        projects we take on and honest about the ones we don't.
+      </p>
+    </header>
+
+    <div class="prose-body">
+      <h2>Who we are</h2>
+      <p>
+        Apriori Studio operates as <strong>Apriori Ltd</strong>, a private limited company
+        registered in England and Wales. We're based in London but most of our work is remote —
+        clients are spread across the UK, the EU and occasionally further afield.
+      </p>
+      <p>
+        We're small on purpose. The person you talk to about your project is one of the people
+        who will build it. That means decisions happen in hours rather than weeks, trade-offs
+        get explained in plain English, and there's no chain of account managers between your
+        question and the answer.
+      </p>
+
+      <h2>What we believe about software</h2>
+      <p>
+        The name "a priori" comes from philosophy — knowledge derived from first principles
+        rather than borrowed from elsewhere. That sounds grand for a software studio, but it's
+        roughly how we think about projects. Every brief is different. The right framework, the
+        right hosting, the right design pattern for your project depends on your scale, your
+        users, your team's existing skills, and what you can afford to maintain. We don't have
+        a fixed stack we apply to everyone; we pick what fits.
+      </p>
+      <p>
+        That said, we have strong opinions about a few things that almost always matter:
+      </p>
+      <ul>
+        <li><strong>Boring is good.</strong> We pick well-documented, widely-used tools over the trendy
+          option. They're easier to hire for and they'll still be supported in five years.</li>
+        <li><strong>Speed is a feature.</strong> Slow sites lose users; slow apps get uninstalled. We
+          treat performance as a non-negotiable, not a polish-pass at the end.</li>
+        <li><strong>Honest pricing.</strong> Every quote is fixed scope and fixed price. If something
+          changes, we put it in writing before doing it.</li>
+        <li><strong>You own everything.</strong> Domains, hosting accounts, source code, design files
+          — registered in your name from day one. There's no lock-in.</li>
+        <li><strong>Maintenance is part of the work.</strong> Going live is the start, not the end.
+          We monitor, patch, back up, and answer the phone when something needs attention.</li>
+      </ul>
+
+      <h2>Who we're not for</h2>
+      <p>
+        We're not the right studio if you need fifty engineers tomorrow, if you want a partner
+        who'll say yes to every change without pushing back, or if you're looking for the
+        cheapest option in a freelance auction. We charge what the work costs and we're
+        upfront about it.
+      </p>
+
+      <h2>Get in touch</h2>
+      <p>
+        The best way to find out if we're a fit is a short conversation. Tell us what you're
+        working on, what's holding it up, and what success looks like for you. We'll come back
+        with honest thoughts within two business days, and if we think someone else would serve
+        you better, we'll tell you that too.
+      </p>
+      <p>
+        <a href="/contact">Use the contact form</a> or email
+        <a href="mailto:mp@aprioristudio.com">mp@aprioristudio.com</a> directly.
+      </p>
+    </div>
+  </article>
+</BaseLayout>
