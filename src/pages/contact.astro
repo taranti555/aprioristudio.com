@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import ContactForm from '../components/ContactForm.astro';
+import Email from '../components/Email.astro';
 import JsonLd from '../components/JsonLd.astro';
 import { SITE } from '../lib/site';
 
@@ -19,7 +20,7 @@ const ld = {
   mainEntity: {
     '@type': 'Organization',
     name: SITE.name,
-    email: SITE.email.contact,
+    url: SITE.url,
   },
 };
 ---
@@ -51,10 +52,10 @@ const ld = {
         <div>
           <h2 class="font-semibold text-[var(--color-ink)] mb-2">Email</h2>
           <p>
-            <a href={`mailto:${SITE.email.contact}`} class="text-[var(--color-accent)] hover:underline">{SITE.email.contact}</a>
+            <Email address={SITE.email.contact} class="text-[var(--color-accent)] hover:underline" />
           </p>
           <p class="text-[var(--color-ink-soft)] text-xs mt-1">
-            Mikhail Pogossov, Founder
+            Goes straight to the studio team.
           </p>
         </div>
 

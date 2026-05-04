@@ -27,7 +27,6 @@ const orgLd = {
   url: SITE.url,
   logo: new URL('/logo.svg', SITE.url).toString(),
   description: SITE.description,
-  email: SITE.email.contact,
   address: {
     '@type': 'PostalAddress',
     addressCountry: SITE.address.country,
@@ -38,7 +37,7 @@ const orgLd = {
     {
       '@type': 'ContactPoint',
       contactType: 'customer support',
-      email: SITE.email.contact,
+      url: SITE.url + '/contact',
       availableLanguage: ['English'],
     },
   ],
@@ -104,6 +103,50 @@ const orgLd = {
           });
         }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
         els.forEach((el) => io.observe(el));
+      })();
+    </script>
+
+    <script is:inline>
+      // Decode XOR-obfuscated email addresses (cloudflare-style).
+      // Replaces visible text + sets href on click only (so scrapers tailing
+      // page sources don't get a plain mailto: at all).
+      (function () {
+        function decode(enc) {
+          var k = parseInt(enc.substr(0, 2), 16);
+          var out = '';
+          for (var i = 2; i < enc.length; i += 2) {
+            out += String.fromCharCode(parseInt(enc.substr(i, 2), 16) ^ k);
+          }
+          return out;
+        }
+        var nodes = document.querySelectorAll('a.cfemail[data-cfemail]');
+        for (var n = 0; n < nodes.length; n++) {
+          (function (a) {
+            var addr;
+            try { addr = decode(a.getAttribute('data-cfemail') || ''); }
+            catch (e) { return; }
+            if (!addr) return;
+            var label = a.getAttribute('data-cflabel') || addr;
+            a.textContent = label;
+            a.removeAttribute('data-cfemail');
+            a.removeAttribute('data-cflabel');
+            a.removeAttribute('href');
+            a.style.cursor = 'pointer';
+            a.addEventListener('click', function (ev) {
+              ev.preventDefault();
+              window.location.href = 'mailto:' + addr;
+            });
+            // Keyboard accessibility
+            a.setAttribute('role', 'link');
+            a.setAttribute('tabindex', '0');
+            a.addEventListener('keydown', function (ev) {
+              if (ev.key === 'Enter' || ev.key === ' ') {
+                ev.preventDefault();
+                window.location.href = 'mailto:' + addr;
+              }
+            });
+          })(nodes[n]);
+        }
       })();
     </script>
   </body>

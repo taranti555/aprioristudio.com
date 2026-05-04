@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Email from '../components/Email.astro';
 import { SITE } from '../lib/site';
 
 const title = 'Privacy policy';
@@ -26,7 +27,7 @@ const updated = '2026-05-04';
         This page explains what information Apriori Studio (operating as Apriori Ltd, a company
         registered in England and Wales) collects through aprioristudio.com, what we do with it,
         and how you can ask us to delete it. We try to write this in plain English. If anything
-        is unclear, email us at <a href={`mailto:${SITE.email.contact}`}>{SITE.email.contact}</a>
+        is unclear, email us at <Email address={SITE.email.contact} />
         and we'll explain.
       </p>
 
@@ -34,7 +35,7 @@ const updated = '2026-05-04';
       <p>
         Apriori Ltd ("we," "us," "our") is the data controller for personal data submitted
         through this website. Our registered office is in London, United Kingdom. You can reach
-        us at <a href={`mailto:${SITE.email.contact}`}>{SITE.email.contact}</a>.
+        us at <Email address={SITE.email.contact} />.
       </p>
 
       <h2>What we collect</h2>
@@ -101,7 +102,7 @@ const updated = '2026-05-04';
       </ul>
       <p>
         To exercise any of these rights, email us at
-        <a href={`mailto:${SITE.email.contact}`}>{SITE.email.contact}</a>. We'll respond within
+        <Email address={SITE.email.contact} />. We'll respond within
         thirty days.
       </p>
 

@@ -7,7 +7,8 @@ export const SITE = {
   description:
     'Apriori Studio is a UK software studio building modern websites and mobile apps end-to-end — from domain and hosting to design, development and launch.',
   email: {
-    contact: 'mp@aprioristudio.com',
+    contact: 'info@aprioristudio.com',
+    mikhail: 'mp@aprioristudio.com',
     nina: 'np@aprioristudio.com',
     noreply: 'noreply@aprioristudio.com',
   },
@@ -27,7 +28,6 @@ export const NAV: NavItem[] = [
   { href: '/web', label: 'Websites' },
   { href: '/apps', label: 'Mobile apps' },
   { href: '/about', label: 'About' },
-  { href: '/contact', label: 'Contact' },
 ];
 
 export const WEB_SERVICES = [

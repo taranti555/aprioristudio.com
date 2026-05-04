@@ -1,0 +1,57 @@
+---
+/**
+ * Scraper-resistant email link.
+ *
+ * The address is encoded with a Cloudflare-style XOR cipher and rendered
+ * inside an `<a class="cfemail" data-cfemail="...">` element with a
+ * confusion placeholder as visible text. A tiny inline script in
+ * BaseLayout decodes it on the client and rewrites both the href
+ * (mailto:) and the visible text.
+ *
+ * No-JS fallback: the user sees the address in HTML-entity form, which
+ * is unclickable and useless to scrapers.
+ */
+interface Props {
+  address: string;
+  /** Optional label shown when JS is enabled. Defaults to the address. */
+  label?: string;
+  class?: string;
+}
+const { address, label, class: className = '' } = Astro.props;
+
+// Cloudflare-style XOR encode → hex
+function encode(addr: string): string {
+  const key = Math.floor(Math.random() * 256);
+  let out = key.toString(16).padStart(2, '0');
+  for (let i = 0; i < addr.length; i++) {
+    out += (addr.charCodeAt(i) ^ key).toString(16).padStart(2, '0');
+  }
+  return out;
+}
+
+const cf = encode(address);
+
+// Visible fallback: HTML entities + zero-width breaks. Useless for bots,
+// indistinguishable from the real address only after JS runs.
+const fallbackParts = address.split('@');
+const fallbackUser = fallbackParts[0]
+  .split('')
+  .map((c) => `&#${c.charCodeAt(0)};`)
+  .join('');
+const fallbackDomain = fallbackParts[1]
+  .split('')
+  .map((c) => `&#${c.charCodeAt(0)};`)
+  .join('');
+
+// Visible label when JS is enabled
+const visibleLabel = label ?? address;
+---
+<a
+  class={`cfemail ${className}`}
+  href="/cdn-cgi/l/email-protection#noscript"
+  data-cfemail={cf}
+  data-cflabel={label ? label : ''}
+><span set:html={fallbackUser} />&#64;<span set:html={fallbackDomain} /></a>
+<noscript>
+  <span class="text-[var(--color-ink-soft)]">(enable JavaScript to reveal — or use the form)</span>
+</noscript>

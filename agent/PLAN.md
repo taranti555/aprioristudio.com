@@ -159,11 +159,12 @@ MySQL user: `aprioristudio_app` with `SELECT, INSERT, UPDATE` only on this DB. P
 
 ## 7. Mailcow integration (already done)
 
-| Address | Purpose | Forward |
-|---|---|---|
-| `mp@aprioristudio.com` | Mikhail | → `mpogossov@gmail.com` (BCC copy) |
-| `np@aprioristudio.com` | Nina | → `npogossova@gmail.com` (BCC copy) |
-| `noreply@aprioristudio.com` | Outgoing system mail | none |
+| Address | Type | Purpose | Forward |
+|---|---|---|---|
+| `info@aprioristudio.com` | alias | Public contact address (shown on the site) | → `mp@`, `np@` (delivered to both) |
+| `mp@aprioristudio.com` | mailbox | Mikhail | → `mpogossov@gmail.com` (BCC copy) |
+| `np@aprioristudio.com` | mailbox | Nina | → `npogossova@gmail.com` (BCC copy) |
+| `noreply@aprioristudio.com` | mailbox | Outgoing system mail (form notifications) | none |
 
 DNS: MX → `mail.pogosov.com`, SPF/DKIM/DMARC set on GoDaddy.
 

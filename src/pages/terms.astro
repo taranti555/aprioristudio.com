@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Email from '../components/Email.astro';
+import { SITE } from '../lib/site';
 
 const title = 'Terms of use';
 const description =
@@ -101,8 +103,7 @@ const updated = '2026-05-04';
 
       <h2>Contact</h2>
       <p>
-        Questions about these terms can be sent to
-        <a href="mailto:mp@aprioristudio.com">mp@aprioristudio.com</a>.
+        Questions about these terms can be sent to <Email address={SITE.email.contact} />.
       </p>
     </div>
   </article>

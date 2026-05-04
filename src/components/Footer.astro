@@ -1,5 +1,6 @@
 ---
 import { SITE, WEB_SERVICES, APP_SERVICES } from '../lib/site';
+import Email from './Email.astro';
 const year = new Date().getFullYear();
 ---
 <footer class="border-t border-[var(--color-border)] bg-white mt-24">
@@ -48,7 +49,7 @@ const year = new Date().getFullYear();
         <li><a href="/contact" class="text-[var(--color-ink-soft)] hover:text-[var(--color-accent)]">Contact</a></li>
         <li><a href="/privacy" class="text-[var(--color-ink-soft)] hover:text-[var(--color-accent)]">Privacy policy</a></li>
         <li><a href="/terms" class="text-[var(--color-ink-soft)] hover:text-[var(--color-accent)]">Terms of use</a></li>
-        <li class="pt-2"><a href={`mailto:${SITE.email.contact}`} class="text-[var(--color-ink-soft)] hover:text-[var(--color-accent)]">{SITE.email.contact}</a></li>
+        <li class="pt-2"><Email address={SITE.email.contact} class="text-[var(--color-ink-soft)] hover:text-[var(--color-accent)]" /></li>
       </ul>
     </div>
   </div>
