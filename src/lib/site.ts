@@ -15,7 +15,7 @@ export const SITE = {
   address: {
     country: 'GB',
     region: 'England',
-    locality: 'London',
+    locality: 'Cambridge',
   },
   social: {
     // Placeholders — fill when accounts exist

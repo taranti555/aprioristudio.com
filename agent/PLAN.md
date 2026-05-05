@@ -217,19 +217,44 @@ Local development on ru128: `npm run dev` (Astro dev server on :4321). PHP form 
 
 ## 10. Status / TODO
 
-Tracked in TaskList — see live state. Summary at time of plan creation:
+### Done
+- [x] PLAN.md (this file)
+- [x] Mailcow domain `aprioristudio.com` + 3 mailboxes (mp@, np@, noreply@) + BCC forwards to gmail
+- [x] Mailcow alias `info@` → `mp@,np@` (public address used everywhere on site)
+- [x] DNS at GoDaddy: A @, A *, MX → mail.pogosov.com, SPF, DMARC, DKIM (no `mail.aprioristudio.com` A record — MX points at mail.pogosov.com directly)
+- [x] uk215 reconnaissance — **port 443 conflict with xray Reality** (cannot host nginx there without breaking VPN — see memory `feedback_uk215_xray_reality_443.md`)
+- [x] GitHub repo `taranti555/aprioristudio.com` (public, MIT-style "all rights reserved")
+- [x] MySQL: db `aprioristudio` + user `aprioristudio_app@127.0.0.1` (SELECT/INSERT/UPDATE) + table `contact_submissions` on ru128
+- [x] Astro 6 skeleton + Tailwind 4 (Vite plugin) + @astrojs/sitemap
+- [x] Logo (SVG triangular A + amber crossbar) + favicon (svg, 32/180/192/512 png) + OG image (1200×630)
+- [x] All 14 pages — every page > 1000 chars (smallest content page: `/about` 3275 chars; service pages 6000+)
+- [x] Contact form (Astro frontend + `api/contact.php` with honeypot, timestamp anti-spam, MySQL persist, custom SMTP STARTTLS client)
+- [x] SEO: sitemap-index + sitemap-0, robots.txt (top-10 search bots only), JSON-LD Organization/Service/BreadcrumbList/ContactPage, OG/Twitter cards, canonical URLs
+- [x] Push to GitHub (initial + visual upgrade + email obfuscation = 3 commits as of 2026-05-04)
+- [x] AI hero images via FLUX.2-dev FP8 on ru62: home/web/apps/about/contact (WebP, 12-43 KB each)
+- [x] Visual polish: Hero/Icon/StatGrid/ProcessSteps components, scroll-fade IntersectionObserver, mesh-gradient, btn lift, hero text-shadow + grain overlay
+- [x] Email obfuscation: XOR-hex `<Email />` + JS decoder in BaseLayout, no plain text emails or mailto: anywhere in built dist (incl. JSON-LD)
+- [x] Local preview on ru128 via Tailscale: `http://100.65.178.83:4321` (run with `setsid nohup npm run preview -- --host 100.65.178.83 --port 4321`)
 
-- [x] Mailcow domain + 3 mailboxes + BCC forwards
-- [x] DNS: A/MX/SPF/DMARC/DKIM via GoDaddy API
-- [x] uk215 reconnaissance (port 443 conflict surfaced)
-- [ ] PLAN.md ← *you are here*
-- [ ] GitHub repo
-- [ ] MySQL DB + user
-- [ ] Astro skeleton
-- [ ] Logo + favicon
-- [ ] All 14 pages with content
-- [ ] Contact form (frontend + PHP)
-- [ ] SEO (sitemap, robots, JSON-LD)
-- [ ] Push to GitHub
-- [ ] Local preview on ru128
-- [ ] *(deferred)* VPS deploy
+### Deferred (waiting on user VPS choice)
+- [ ] Choose VPS — recommended Hetzner CCX23 Helsinki (€25/mo, dedicated AMD EPYC). Alternatives: OVH London (UK IP), Contabo Manchester (cheap UK). **NOT** uk215/uk132 (xray :443), **NOT** anything in RU
+- [ ] VPS install: nginx + php8.2-fpm + certbot, deploy.sh + systemd timer/cron for auto-renew
+- [ ] Update GoDaddy DNS `A @` and `A *` to chosen VPS IP
+- [ ] Deploy + Let's Encrypt for aprioristudio.com + www
+- [ ] End-to-end form test: POST → MySQL row → SMTP delivered to mp@ + np@ inboxes
+
+### Possible follow-ups (not blocking launch)
+- [ ] `hreflang="en-GB"` on every page (UK SEO microboost)
+- [ ] Search Console country targeting → UK (post-launch, requires verification)
+- [ ] More content as real projects come in (case studies, blog, portfolio)
+- [ ] D-U-N-S registration for Apriori Ltd (prerequisite for Apple Developer Organization enrollment)
+
+### Generated secrets (need to be in production `.env`)
+| Item | Value |
+|---|---|
+| MySQL `aprioristudio_app` password | `klQv3IgavUoQI6qSXkzGMYtcF0Wx` |
+| `mp@` mailbox password | `qXbmNI0cxHrLhOkyX7un` |
+| `np@` mailbox password | `GlL4ckgynfRtOkujdkSo` |
+| `noreply@` mailbox password (used by form SMTP auth) | `mEcq724E4xYqAWezSR5q` |
+
+(Also recorded in user's auto-memory file `project_apriori_studio.md` so they survive context compaction.)
